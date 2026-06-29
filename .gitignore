@@ -1,0 +1,30 @@
+# original references stay local — only recreated OUTPUTS get pushed
+*/inspo/
+*/reference/
+
+# deps / build
+node_modules/
+dist/
+build/
+.cache/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# env / secrets
+.env
+.env.*
+*.local
+
+# scratch
+tmp/
+scratch/
+
+# screenshot strays
+.playwright-mcp/
+/*-desktop.png
+/*-mobile.png
+/*-check.png
