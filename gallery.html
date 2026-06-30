@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI/UX Design Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./gallery-data.js"></script>
+  <style>
+    body { background: #0a0a0b; }
+    .thumb { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+  </style>
+</head>
+<body class="text-zinc-100 min-h-screen antialiased">
+  <header class="max-w-6xl mx-auto px-6 pt-12 pb-6">
+    <h1 class="text-3xl font-semibold tracking-tight">UI/UX Design Gallery</h1>
+    <p class="text-zinc-400 mt-2">Recreated reference designs. Click a card to open the desktop or mobile build.</p>
+    <div class="mt-6 flex flex-wrap gap-2" id="filters"></div>
+    <input id="search" type="search" placeholder="Search title or tag…"
+      class="mt-4 w-full sm:w-80 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-sm outline-none focus:border-zinc-600">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 pb-24">
+    <div id="grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <p id="empty" class="text-zinc-500 text-center py-24 hidden">No designs yet — paste a reference and run <code>/recreate-design</code>.</p>
+  </main>
+
+  <script>
+    const DATA = (window.GALLERY || []);
+    const grid = document.getElementById('grid');
+    const filtersEl = document.getElementById('filters');
+    const searchEl = document.getElementById('search');
+    const emptyEl = document.getElementById('empty');
+    let activeTag = null;
+
+    const tagsOf = d => [d.category, ...(d.tags || [])].filter(Boolean);
+    const allTags = [...new Set(DATA.flatMap(tagsOf))].sort();
+
+    function chip(label, on) {
+      const b = document.createElement('button');
+      b.textContent = label;
+      b.className = 'px-3 py-1 rounded-full text-sm border transition ' +
+        (on ? 'bg-zinc-100 text-zinc-900 border-zinc-100'
+            : 'border-zinc-700 text-zinc-300 hover:border-zinc-500');
+      return b;
+    }
+
+    function renderFilters() {
+      filtersEl.innerHTML = '';
+      const all = chip('All', activeTag === null);
+      all.onclick = () => { activeTag = null; render(); };
+      filtersEl.appendChild(all);
+      allTags.forEach(t => {
+        const c = chip(t, activeTag === t);
+        c.onclick = () => { activeTag = (activeTag === t ? null : t); render(); };
+        filtersEl.appendChild(c);
+      });
+    }
+
+    function card(d) {
+      const tags = tagsOf(d);
+      const el = document.createElement('article');
+      el.className = 'group rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900/40 hover:border-zinc-600 transition';
+      el.innerHTML = `
+        <div class="relative">
+          <img src="${d.desktop}" alt="${d.title} desktop" class="thumb w-full" loading="lazy">
+          <img src="${d.mobile}" alt="${d.title} mobile"
+               class="absolute bottom-2 right-2 w-12 rounded border border-zinc-700 shadow-lg" loading="lazy">
+        </div>
+        <div class="p-4">
+          <h2 class="font-medium">${d.title}</h2>
+          <div class="mt-2 flex flex-wrap gap-1">
+            ${tags.map(t => `<span class="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">${t}</span>`).join('')}
+          </div>
+          <div class="mt-3 flex gap-3 text-sm">
+            <a href="./${d.slug}/desktop.html" class="text-indigo-400 hover:underline">Desktop ↗</a>
+            <a href="./${d.slug}/mobile.html" class="text-indigo-400 hover:underline">Mobile ↗</a>
+          </div>
+        </div>`;
+      return el;
+    }
+
+    function render() {
+      renderFilters();
+      const q = (searchEl.value || '').toLowerCase().trim();
+      const items = DATA.filter(d => {
+        const tags = tagsOf(d);
+        const tagOk = !activeTag || tags.includes(activeTag);
+        const qOk = !q || (d.title || '').toLowerCase().includes(q) || tags.join(' ').toLowerCase().includes(q);
+        return tagOk && qOk;
+      });
+      grid.innerHTML = '';
+      items.forEach(d => grid.appendChild(card(d)));
+      emptyEl.classList.toggle('hidden', items.length > 0);
+    }
+
+    searchEl.addEventListener('input', render);
+    render();
+  </script>
+</body>
+</html>
