@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crimson Keep — Gaming Lounge</title>
+  <meta name="description" content="A pixel-gothic battlestation lounge. RTX rigs, console thrones, and a hall that never sleeps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#0c1724', ink2:'#101d2d', panel:'#132234', line:'#2b3f55',
+                crimson:'#D41515', crimsonHi:'#e02525', amber:'#E8A030',
+                paper:'#cfdcea', muted:'#7f96ac' },
+      fontFamily: { pixel:['"Pixelify Sans"','sans-serif'], press:['"Press Start 2P"','monospace'], term:['VT323','monospace'] }
+    }}};
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ink text-paper">
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-ink/90 backdrop-blur-[2px] border-b-2 border-line">
+    <nav class="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3">
+        <span class="w-4 h-4 bg-crimson inline-block" style="box-shadow:2px 2px 0 #060d16"></span>
+        <span class="font-press text-[11px] tracking-wider">CRIMSON <span class="text-crimsonHi">KEEP</span></span>
+      </a>
+      <ul class="hidden md:flex items-center gap-8 font-press text-[9px] uppercase tracking-widest text-muted">
+        <li><a href="#stations" class="hover:text-paper transition">Stations</a></li>
+        <li><a href="#passes" class="hover:text-paper transition">Passes</a></li>
+        <li><a href="#events" class="hover:text-paper transition">Events</a></li>
+        <li><a href="#find" class="hover:text-paper transition">Find us</a></li>
+      </ul>
+      <a href="#passes" class="btn btn-crimson !py-3 !px-5 !text-[9px]">Book a rig</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative h-screen min-h-[760px] overflow-hidden bg-[#1c2b3c]">
+    <canvas class="scene absolute inset-0 w-full h-full" id="scene" aria-hidden="true"></canvas>
+    <div class="hero-scrim absolute inset-0 z-[1]"></div>
+
+    <div class="relative z-10 h-full max-w-7xl mx-auto px-8 flex items-center">
+      <div class="max-w-xl">
+        <p class="rise tag" style="animation-delay:.05s">// EST. MMXXVI — OPEN TILL 2AM</p>
+        <h1 class="rise font-pixel font-bold text-6xl lg:text-7xl leading-[1.02] mt-6" style="animation-delay:.15s">
+          YOUR RUN<br>STARTS AT<br><span class="text-crimsonHi">THE KEEP</span>
+        </h1>
+        <p class="rise mt-6 font-term text-[22px] text-paper/85 leading-snug max-w-md" style="animation-delay:.3s">
+          A pixel-gothic battlestation lounge — RTX rigs, console thrones, and a hall
+          that never sleeps. Pull up, plug in, play till the sun forgets you.
+        </p>
+        <div class="rise mt-8 flex flex-wrap items-center gap-5" style="animation-delay:.45s">
+          <a href="#passes" class="btn btn-crimson">▶ Book a rig</a>
+          <a href="#stations" class="btn btn-ghost">See the hall</a>
+        </div>
+        <dl class="rise mt-10 flex gap-4" style="animation-delay:.6s">
+          <div class="hud"><dt class="font-pixel text-2xl leading-none">24</dt><dd class="font-press text-[7px] text-muted mt-2 uppercase">RTX rigs</dd></div>
+          <div class="hud"><dt class="font-pixel text-2xl leading-none">08</dt><dd class="font-press text-[7px] text-muted mt-2 uppercase">Thrones</dd></div>
+          <div class="hud"><dt class="font-pixel text-2xl leading-none text-crimsonHi">2AM</dt><dd class="font-press text-[7px] text-muted mt-2 uppercase">Nightly</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <a href="#vibe" class="chevron absolute bottom-5 left-1/2 -translate-x-1/2 z-10 font-press text-[10px] text-muted hover:text-paper" aria-label="Scroll down">▼</a>
+  </section>
+
+  <div class="dither"></div>
+
+  <!-- VIBE -->
+  <section id="vibe" class="bg-ink2">
+    <div class="max-w-7xl mx-auto px-8 py-24">
+      <p class="tag">// THE KEEP</p>
+      <h2 class="font-pixel font-bold text-4xl sm:text-5xl mt-4 max-w-2xl leading-tight">Not a café. A stronghold for players.</h2>
+      <div class="grid md:grid-cols-3 gap-8 mt-14">
+        <article class="panel panel-hover p-7">
+          <span class="font-press text-crimsonHi text-sm">01</span>
+          <h3 class="font-pixel font-bold text-2xl mt-4">RTX battlestations</h3>
+          <p class="font-term text-[20px] text-paper/75 mt-3">240Hz panels, 4080-class GPUs, mechanical everything. Zero excuses, zero stutter.</p>
+        </article>
+        <article class="panel panel-hover p-7">
+          <span class="font-press text-crimsonHi text-sm">02</span>
+          <h3 class="font-pixel font-bold text-2xl mt-4">Built for the long haul</h3>
+          <p class="font-term text-[20px] text-paper/75 mt-3">Ergo thrones, blackout booths, bottomless brew. Six-hour raids welcome — your spine will thank you.</p>
+        </article>
+        <article class="panel panel-hover p-7">
+          <span class="font-press text-crimsonHi text-sm">03</span>
+          <h3 class="font-pixel font-bold text-2xl mt-4">A real guild</h3>
+          <p class="font-term text-[20px] text-paper/75 mt-3">Weekly tourneys, ranked nights, and people who actually show up. Walk in solo, leave with a squad.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="dither-b"></div>
+
+  <!-- STATIONS -->
+  <section id="stations" class="bg-ink">
+    <div class="max-w-7xl mx-auto px-8 py-24">
+      <div class="flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <p class="tag">// PICK YOUR SEAT</p>
+          <h2 class="font-pixel font-bold text-4xl sm:text-5xl mt-4">Stations of the hall</h2>
+        </div>
+        <p class="font-term text-[19px] text-muted max-w-xs">Every station is walk-in or bookable. Specs are real, not marketing.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+        <article class="panel panel-hover p-6 flex flex-col">
+          <svg class="pix-ico" width="36" height="36" viewBox="0 0 12 12" fill="#cfdcea"><rect x="1" y="2" width="10" height="6"/><rect x="2" y="3" width="8" height="4" fill="#0c1724"/><rect x="3" y="4" width="4" height="1" fill="#D41515"/><rect x="5" y="9" width="2" height="1"/><rect x="3" y="10" width="6" height="1"/></svg>
+          <h3 class="font-pixel font-bold text-xl mt-4">PC Throne</h3>
+          <ul class="font-term text-[18px] text-muted mt-3 space-y-0.5">
+            <li>&gt; RTX 4080</li><li>&gt; i7-14700K</li><li>&gt; 240Hz · 1440p</li><li>&gt; 32GB DDR5</li>
+          </ul>
+          <p class="mt-auto pt-6 font-pixel font-bold text-3xl">$6<span class="font-press text-[8px] text-muted">/HR</span></p>
+        </article>
+        <article class="panel panel-hover p-6 flex flex-col">
+          <svg class="pix-ico" width="36" height="36" viewBox="0 0 12 12" fill="#cfdcea"><rect x="1" y="4" width="10" height="5"/><rect x="0" y="5" width="1" height="3"/><rect x="11" y="5" width="1" height="3"/><rect x="2" y="5" width="1" height="3" fill="#0c1724"/><rect x="1" y="6" width="3" height="1" fill="#0c1724"/><rect x="8" y="5" width="1" height="1" fill="#D41515"/><rect x="9" y="6" width="1" height="1" fill="#D41515"/></svg>
+          <h3 class="font-pixel font-bold text-xl mt-4">Console Hall</h3>
+          <ul class="font-term text-[18px] text-muted mt-3 space-y-0.5">
+            <li>&gt; PS5 Pro</li><li>&gt; Xbox Series X</li><li>&gt; 4K · 120Hz OLED</li><li>&gt; couch co-op ×4</li>
+          </ul>
+          <p class="mt-auto pt-6 font-pixel font-bold text-3xl">$5<span class="font-press text-[8px] text-muted">/HR</span></p>
+        </article>
+        <article class="panel panel-hover p-6 flex flex-col">
+          <svg class="pix-ico" width="36" height="36" viewBox="0 0 12 12" fill="#cfdcea"><rect x="2" y="1" width="8" height="2"/><rect x="1" y="3" width="2" height="6"/><rect x="9" y="3" width="2" height="6"/><rect x="2" y="9" width="8" height="2"/><rect x="5" y="5" width="2" height="2" fill="#D41515"/><rect x="5" y="7" width="2" height="4"/></svg>
+          <h3 class="font-pixel font-bold text-xl mt-4">Sim Pit</h3>
+          <ul class="font-term text-[18px] text-muted mt-3 space-y-0.5">
+            <li>&gt; direct-drive wheel</li><li>&gt; HOTAS + pedals</li><li>&gt; triple 1440p</li><li>&gt; bass shaker</li>
+          </ul>
+          <p class="mt-auto pt-6 font-pixel font-bold text-3xl">$9<span class="font-press text-[8px] text-muted">/HR</span></p>
+        </article>
+        <article class="panel-crimson bezel p-6 flex flex-col">
+          <svg class="pix-ico" width="36" height="36" viewBox="0 0 12 12" fill="#e02525"><rect x="1" y="3" width="10" height="5"/><rect x="2" y="4" width="3" height="2" fill="#0c1724"/><rect x="7" y="4" width="3" height="2" fill="#0c1724"/><rect x="4" y="8" width="4" height="1"/><rect x="0" y="4" width="1" height="3"/><rect x="11" y="4" width="1" height="3"/></svg>
+          <h3 class="font-pixel font-bold text-xl mt-4 text-crimsonHi">VR Vault</h3>
+          <ul class="font-term text-[18px] text-muted mt-3 space-y-0.5">
+            <li>&gt; Quest 3 + PCVR</li><li>&gt; room-scale 4×4m</li><li>&gt; haptic vest</li><li>&gt; guided sessions</li>
+          </ul>
+          <p class="mt-auto pt-6 font-pixel font-bold text-3xl">$10<span class="font-press text-[8px] text-muted">/HR</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="dither"></div>
+
+  <!-- PASSES -->
+  <section id="passes" class="bg-ink2">
+    <div class="max-w-7xl mx-auto px-8 py-24">
+      <p class="tag">// CHOOSE YOUR RUN</p>
+      <h2 class="font-pixel font-bold text-4xl sm:text-5xl mt-4">Passes &amp; tribute</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+        <article class="panel panel-hover p-7">
+          <h3 class="font-press text-[9px] uppercase tracking-widest text-muted">Hour Pass</h3>
+          <p class="font-pixel font-bold text-5xl mt-5">$6<span class="font-press text-[9px] text-muted">/HR</span></p>
+          <p class="font-term text-[19px] text-paper/70 mt-3">Pay as you raid. Any open station.</p>
+          <a href="#find" class="btn btn-ghost mt-7 w-full text-center !text-[9px]">Walk in</a>
+        </article>
+        <article class="panel panel-hover p-7">
+          <h3 class="font-press text-[9px] uppercase tracking-widest text-muted">Day Pass</h3>
+          <p class="font-pixel font-bold text-5xl mt-5">$28</p>
+          <p class="font-term text-[19px] text-paper/70 mt-3">12 hours, any station, one sunrise.</p>
+          <a href="#find" class="btn btn-ghost mt-7 w-full text-center !text-[9px]">Claim</a>
+        </article>
+        <article class="relative panel-crimson bezel p-7">
+          <span class="absolute -top-3 left-5 bg-crimson text-white font-press text-[8px] uppercase px-2 py-1">★ Most raided</span>
+          <h3 class="font-press text-[9px] uppercase tracking-widest text-crimsonHi">Night Owl</h3>
+          <p class="font-pixel font-bold text-5xl mt-5">$20</p>
+          <p class="font-term text-[19px] text-paper/80 mt-3">10PM → 6AM. Unlimited. The hall is yours.</p>
+          <a href="#find" class="btn btn-crimson mt-7 w-full text-center !text-[9px]">Take the night</a>
+        </article>
+        <article class="panel panel-hover p-7">
+          <h3 class="font-press text-[9px] uppercase tracking-widest text-muted">Keep Member</h3>
+          <p class="font-pixel font-bold text-5xl mt-5">$79<span class="font-press text-[9px] text-muted">/MO</span></p>
+          <p class="font-term text-[19px] text-paper/70 mt-3">30% off, priority rigs, free tourney entry.</p>
+          <a href="#find" class="btn btn-ghost mt-7 w-full text-center !text-[9px]">Pledge</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="dither-b"></div>
+
+  <!-- EVENTS: quest board -->
+  <section id="events" class="bg-ink">
+    <div class="max-w-7xl mx-auto px-8 py-24 grid lg:grid-cols-[1.2fr_1fr] gap-12">
+      <div>
+        <p class="tag">// THE WEEK AHEAD</p>
+        <h2 class="font-pixel font-bold text-4xl sm:text-5xl mt-4">Quest board</h2>
+        <ul class="mt-10 space-y-4">
+          <li class="panel panel-hover px-5 py-4 flex items-center gap-5">
+            <span class="font-press text-[9px] text-crimsonHi w-28 shrink-0">FRI · 20:00</span>
+            <span class="font-pixel font-bold text-xl">Valorant Ranked Night</span>
+            <span class="ml-auto font-press text-[8px] text-muted">5v5</span>
+          </li>
+          <li class="panel panel-hover px-5 py-4 flex items-center gap-5">
+            <span class="font-press text-[9px] text-crimsonHi w-28 shrink-0">SAT · 18:00</span>
+            <span class="font-pixel font-bold text-xl">Tekken King-of-the-Hill</span>
+            <span class="ml-auto font-press text-[8px] text-muted">1v1</span>
+          </li>
+          <li class="panel panel-hover px-5 py-4 flex items-center gap-5">
+            <span class="font-press text-[9px] text-crimsonHi w-28 shrink-0">SUN · 16:00</span>
+            <span class="font-pixel font-bold text-xl">Co-op Campaign Couch</span>
+            <span class="ml-auto font-press text-[8px] text-muted">CO-OP</span>
+          </li>
+          <li class="panel panel-hover px-5 py-4 flex items-center gap-5">
+            <span class="font-press text-[9px] text-crimsonHi w-28 shrink-0">WED · 21:00</span>
+            <span class="font-pixel font-bold text-xl">Speedrun Showdown</span>
+            <span class="ml-auto font-press text-[8px] text-muted">ANY%</span>
+          </li>
+        </ul>
+      </div>
+      <aside class="panel-crimson bezel p-8 flex flex-col justify-between">
+        <div>
+          <p class="font-press text-[8px] uppercase tracking-widest text-amber">◆ Monthly main event</p>
+          <h3 class="font-pixel font-bold text-4xl mt-4 leading-tight">The Crimson Cup</h3>
+          <p class="font-term text-[20px] text-paper/80 mt-4">5v5 open bracket. Last keep standing takes the pool — and the wall plaque.</p>
+        </div>
+        <div class="mt-10 flex items-end justify-between">
+          <div><p class="font-pixel font-bold text-5xl text-crimsonHi">$500</p><p class="font-press text-[8px] text-muted uppercase mt-2">Prize pool</p></div>
+          <a href="#find" class="btn btn-crimson !text-[9px]">Enter</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="dither"></div>
+
+  <!-- FIND US -->
+  <section id="find" class="bg-ink2">
+    <div class="max-w-7xl mx-auto px-8 py-24 grid lg:grid-cols-2 gap-12 items-stretch">
+      <div>
+        <p class="tag">// FIND THE KEEP</p>
+        <h2 class="font-pixel font-bold text-4xl sm:text-5xl mt-4">Open while you're awake</h2>
+        <table class="mt-10 w-full font-term text-[20px]">
+          <tbody>
+            <tr class="border-b-2 border-line/50"><td class="py-3 text-muted">Mon — Thu</td><td class="py-3 text-right">12PM — 12AM</td></tr>
+            <tr class="border-b-2 border-line/50"><td class="py-3 text-muted">Friday</td><td class="py-3 text-right">12PM — 2AM</td></tr>
+            <tr class="border-b-2 border-line/50"><td class="py-3 text-muted">Saturday</td><td class="py-3 text-right">10AM — 2AM</td></tr>
+            <tr><td class="py-3 text-muted">Sunday</td><td class="py-3 text-right">10AM — 12AM</td></tr>
+          </tbody>
+        </table>
+        <div class="mt-8 font-term text-[20px] text-paper/85">
+          <p>&gt; Tower 4, Neon Quarter</p>
+          <p>&gt; 2 min from Old Town metro · exit C</p>
+          <p class="text-crimsonHi mt-3">&gt; hail@crimsonkeep.gg</p>
+        </div>
+      </div>
+      <div class="map-grid panel relative min-h-[340px] !bg-[#0d1a29]">
+        <div class="absolute left-0 right-0 top-1/2 h-[6px] bg-line/50"></div>
+        <div class="absolute top-0 bottom-0 left-[38%] w-[6px] bg-line/50"></div>
+        <div class="absolute left-[38%] top-1/2 -translate-x-1/2 -translate-y-full flex flex-col items-center">
+          <span class="font-press text-[8px] uppercase bg-crimson text-white px-2 py-1 mb-1.5 whitespace-nowrap">Crimson Keep</span>
+          <span class="w-3.5 h-3.5 bg-crimson rotate-45" style="box-shadow:2px 2px 0 #060d16"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="dither-b"></div>
+
+  <!-- CTA BAND -->
+  <section class="bg-ink relative overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(110,10,13,.25),transparent 55%)"></div>
+    <div class="relative max-w-7xl mx-auto px-8 py-20 flex flex-wrap items-center justify-between gap-8">
+      <div>
+        <h2 class="font-pixel font-bold text-4xl sm:text-5xl">Ready, player?</h2>
+        <p class="font-term text-[20px] text-muted mt-3">Walk-ins welcome till midnight. Reserve to skip the queue.</p>
+      </div>
+      <a href="#passes" class="btn btn-crimson">▶ Book a rig</a>
+    </div>
+  </section>
+
+  <!-- FOOTER: credits screen -->
+  <footer class="border-t-2 border-line bg-[#0a1420]">
+    <div class="max-w-7xl mx-auto px-8 py-14 grid md:grid-cols-[2fr_1fr_1fr] gap-10">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="w-4 h-4 bg-crimson inline-block" style="box-shadow:2px 2px 0 #060d16"></span>
+          <span class="font-press text-[11px]">CRIMSON <span class="text-crimsonHi">KEEP</span></span>
+        </div>
+        <p class="font-term text-[19px] text-muted mt-4 max-w-xs">A pixel-gothic battlestation lounge. Open till the sun forgets you.</p>
+        <p class="font-press text-[9px] text-crimsonHi mt-6 blink">► INSERT COIN</p>
+      </div>
+      <div>
+        <p class="font-press text-[8px] uppercase tracking-widest text-muted">Hall</p>
+        <ul class="mt-4 space-y-2 font-term text-[19px]">
+          <li><a href="#stations" class="hover:text-crimsonHi transition">&gt; Stations</a></li>
+          <li><a href="#passes" class="hover:text-crimsonHi transition">&gt; Passes</a></li>
+          <li><a href="#events" class="hover:text-crimsonHi transition">&gt; Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-press text-[8px] uppercase tracking-widest text-muted">Summon us</p>
+        <ul class="mt-4 space-y-2 font-term text-[19px]">
+          <li><a href="#" class="hover:text-crimsonHi transition">&gt; Discord</a></li>
+          <li><a href="#" class="hover:text-crimsonHi transition">&gt; Twitch</a></li>
+          <li><a href="#" class="hover:text-crimsonHi transition">&gt; Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t-2 border-line/60">
+      <div class="max-w-7xl mx-auto px-8 py-5 flex flex-wrap justify-between gap-3 font-press text-[8px] text-muted uppercase tracking-wider">
+        <span>© MMXXVI Crimson Keep</span>
+        <span>A lone-hero pixelscape</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scene.js"></script>
+  <script>initScene(document.getElementById('scene'), { mode: 'desktop' });</script>
+</body>
+</html>

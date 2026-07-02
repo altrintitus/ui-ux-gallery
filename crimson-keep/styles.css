@@ -1,0 +1,85 @@
+/* Crimson Keep — pixel-art gaming lounge. Game-UI system.
+   Slate-blue night world · single crimson signal · warm amber light. */
+:root{
+  --ink:#0c1724; --ink-2:#101d2d; --panel:#132234; --line:#2b3f55; --line-dk:#060d16;
+  --crimson:#D41515; --crimson-hi:#e02525; --crimson-dk:#5c0a0a;
+  --amber:#E8A030; --paper:#cfdcea; --muted:#7f96ac;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);
+  font-family:'VT323',monospace;font-size:20px;line-height:1.45;-webkit-font-smoothing:none}
+.font-pixel{font-family:'Pixelify Sans',sans-serif;letter-spacing:.01em}
+.font-press{font-family:'Press Start 2P',monospace;line-height:1.7}
+
+/* pixel scene canvas: chunky upscale */
+canvas.scene{image-rendering:pixelated;image-rendering:crisp-edges;display:block;width:100%;height:100%}
+
+/* ====================== GAME-UI PANELS & CHROME ====================== */
+.panel{background:var(--panel);border:2px solid var(--line);border-radius:0;
+  box-shadow:4px 4px 0 var(--line-dk);transition:transform .15s steps(2,end),border-color .15s}
+.panel-hover:hover{transform:translate(-2px,-2px);border-color:var(--crimson);
+  box-shadow:6px 6px 0 var(--line-dk)}
+.panel-crimson{background:linear-gradient(180deg,#22141a,var(--panel));border:2px solid var(--crimson);
+  border-radius:0;box-shadow:4px 4px 0 #2a0505}
+.bezel{box-shadow:inset 2px 2px 0 rgba(255,255,255,.06),inset -2px -2px 0 rgba(0,0,0,.4),4px 4px 0 var(--line-dk)}
+
+/* chunky pressable buttons */
+.btn{display:inline-block;font-family:'Press Start 2P',monospace;font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;border-radius:0;padding:14px 22px;cursor:pointer;
+  transition:transform .05s steps(1,end),box-shadow .05s steps(1,end)}
+.btn-crimson{background:var(--crimson);color:#fff;border:2px solid var(--crimson-hi);
+  box-shadow:3px 3px 0 var(--line-dk),inset -2px -2px 0 rgba(0,0,0,.35),inset 2px 2px 0 rgba(255,255,255,.15)}
+.btn-crimson:hover{background:var(--crimson-hi)}
+.btn-crimson:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--line-dk)}
+.btn-ghost{background:transparent;color:var(--paper);border:2px solid var(--line);
+  box-shadow:3px 3px 0 var(--line-dk)}
+.btn-ghost:hover{border-color:var(--crimson);color:#fff}
+.btn-ghost:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--line-dk)}
+
+/* section eyebrow labels */
+.tag{font-family:'Press Start 2P',monospace;font-size:9px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--crimson-hi)}
+
+/* checkerboard dither divider strips between sections */
+.dither{height:12px;background-image:conic-gradient(var(--ink) 25%,var(--ink-2) 0 50%,var(--ink) 0 75%,var(--ink-2) 0);
+  background-size:8px 8px}
+.dither-b{height:12px;background-image:conic-gradient(var(--ink-2) 25%,var(--ink) 0 50%,var(--ink-2) 0 75%,var(--ink) 0);
+  background-size:8px 8px}
+
+/* HUD chips (hero stats) */
+.hud{background:rgba(9,17,27,.82);border:2px solid var(--line);padding:10px 14px;
+  box-shadow:3px 3px 0 rgba(4,9,15,.8)}
+
+/* hero text scrims */
+.hero-scrim{background:
+  linear-gradient(90deg, rgba(9,16,26,.92) 0%, rgba(9,16,26,.55) 34%, rgba(9,16,26,0) 58%),
+  linear-gradient(0deg, rgba(9,16,26,.55) 0%, transparent 22%)}
+.hero-scrim-mobile{background:linear-gradient(180deg, rgba(9,16,26,.95) 0%, rgba(9,16,26,.82) 26%,
+  rgba(9,16,26,.45) 42%, rgba(9,16,26,0) 58%, rgba(9,16,26,.15) 80%, rgba(9,16,26,.95) 100%)}
+
+/* focus / selection / scrollbar */
+a:focus-visible,button:focus-visible{outline:3px solid var(--crimson);outline-offset:2px}
+::selection{background:var(--crimson);color:#fff}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-track{background:#070e17}
+::-webkit-scrollbar-thumb{background:var(--line);border:3px solid #070e17}
+::-webkit-scrollbar-thumb:hover{background:var(--crimson)}
+
+/* motion bits */
+@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
+.blink{animation:blink 1.2s steps(1,end) infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.chevron{animation:floaty 2s steps(4,end) infinite}
+@keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.rise{opacity:0;animation:riseIn .7s steps(6,end) forwards}
+@media (prefers-reduced-motion: reduce){.rise{animation:none;opacity:1}.chevron,.blink{animation:none}}
+
+/* pixel map */
+.map-grid{background:
+  linear-gradient(rgba(43,63,85,.35) 2px, transparent 2px),
+  linear-gradient(90deg, rgba(43,63,85,.35) 2px, transparent 2px);
+  background-size:16px 16px;background-color:#0d1a29}
+
+/* pixel icons render crisp */
+.pix-ico{image-rendering:pixelated;shape-rendering:crispEdges}
