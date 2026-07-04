@@ -14,12 +14,12 @@
 window.GALLERY = [
   // entries appended below, newest last
   {
-    slug: "crimson-keep",
+    slug: "pixel-gothic",
     title: "Crimson Keep — Lone-Hero Pixelscape",
     category: "landing",
     tags: ["pixel-art", "dark", "gothic", "gaming", "crimson", "game-ui"],
-    desktop: "crimson-keep/preview/desktop.png",
-    mobile: "crimson-keep/preview/mobile.png",
+    desktop: "pixel-gothic/preview/desktop.png",
+    mobile: "pixel-gothic/preview/mobile.png",
     source: "local inspo — lone-hero pixelscape mood board"
   },
   {

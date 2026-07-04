@@ -1,6 +1,6 @@
 ---
 title: Crimson Keep — Lone-Hero Pixelscape
-slug: crimson-keep
+slug: pixel-gothic
 category: landing
 tags: [pixel-art, dark, gothic, gaming, crimson, game-ui]
 source: local inspo (gitignored) — "lone hero dwarfed by a vast pixelscape" mood board (Pinterest-sourced pixel art)
