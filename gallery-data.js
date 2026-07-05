@@ -21,5 +21,14 @@ window.GALLERY = [
     desktop: "crimson-keep/preview/desktop.png",
     mobile: "crimson-keep/preview/mobile.png",
     source: "local inspo — lone-hero pixelscape mood board"
+  },
+  {
+    slug: "frutiger-aero",
+    title: "OASYS — Frutiger Aero Water Brand",
+    category: "landing",
+    tags: ["frutiger-aero", "y2k", "aqua", "gloss", "eco", "animated"],
+    desktop: "frutiger-aero/preview/desktop.png",
+    mobile: "frutiger-aero/preview/mobile.png",
+    source: "local inspo — Frutiger Aero mood board"
   }
 ];

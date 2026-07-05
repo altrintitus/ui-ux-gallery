@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OASYS — Water From a Better Tomorrow</title>
+  <meta name="description" content="OASYS is spring water bottled in 100% recycled glass — from protected springs, for a better tomorrow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { sky:'#5AC8F5', skyDeep:'#1A8FCA', aqua:'#22D4C8', deep:'#0A5A8A',
+                grass:'#4DBF5A', grassMid:'#2DA84A', cloud:'#EEF8FF', navy:'#0C3A52', fish:'#FF7D30' },
+      fontFamily: { display:['Nunito','sans-serif'], sans:['"Nunito Sans"','sans-serif'] }
+    }}};
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-navy">
+
+  <!-- shared SVG defs -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="towerG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFFFFF"/>
+        <stop offset=".35" stop-color="#CFEFFD"/>
+        <stop offset=".7" stop-color="#7CCDF2"/>
+        <stop offset="1" stop-color="#3E9FD8"/>
+      </linearGradient>
+      <linearGradient id="towerB" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#CDEDFB" stop-opacity=".8"/>
+        <stop offset="1" stop-color="#2E8FC7" stop-opacity=".75"/>
+      </linearGradient>
+      <linearGradient id="dropG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8FE7F7"/><stop offset="1" stop-color="#0891B2"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- NAV -->
+  <header class="nav-glass fixed top-0 inset-x-0 z-50">
+    <nav class="max-w-[1280px] mx-auto px-8 h-[72px] flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5">
+        <svg width="26" height="30" viewBox="0 0 20 24" aria-hidden="true"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="url(#dropG)" stroke="rgba(255,255,255,.8)"/><ellipse cx="7.4" cy="10" rx="3" ry="4.4" fill="rgba(255,255,255,.55)" transform="rotate(-18 7.4 10)"/></svg>
+        <span class="font-display font-extrabold text-white text-2xl tracking-tight" style="text-shadow:0 1px 8px rgba(0,110,170,.5)">OASYS</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-9 text-[15px] font-semibold text-white" style="text-shadow:0 1px 4px rgba(0,60,120,.8)">
+        <li><a href="#purity" class="hover:opacity-80 transition">Purity</a></li>
+        <li><a href="#source" class="hover:opacity-80 transition">Source</a></li>
+        <li><a href="#numbers" class="hover:opacity-80 transition">Numbers</a></li>
+        <li><a href="#promise" class="hover:opacity-80 transition">Promise</a></li>
+      </ul>
+      <a href="#promise" class="btn-aqua !py-3 !px-6 text-[15px]">Find a store</a>
+    </nav>
+  </header>
+
+  <!-- HERO — sky → clouds → crystal city → meadow → water -->
+  <section id="top" class="relative min-h-screen overflow-hidden">
+    <!-- sky -->
+    <div class="absolute inset-0" style="background:linear-gradient(180deg,#7AD6FF 0%,#5AC8F5 38%,#2FA6DE 100%)" data-p="0.5"></div>
+    <!-- sun + flare -->
+    <div class="flare w-[420px] h-[420px] -top-24 -left-24" style="animation-duration:5s"></div>
+    <div class="flare w-[120px] h-[120px] top-40 left-56 opacity-70"></div>
+    <!-- clouds -->
+    <div data-p="0.35" class="absolute inset-0">
+      <svg class="cloud w-[340px] top-[12%] left-[8%]" style="--dur:46s" viewBox="0 0 200 60" fill="#FFFFFF" fill-opacity=".92"><ellipse cx="60" cy="40" rx="52" ry="18"/><ellipse cx="105" cy="30" rx="42" ry="20"/><ellipse cx="150" cy="42" rx="46" ry="15"/></svg>
+      <svg class="cloud w-[260px] top-[7%] right-[16%]" style="--dur:60s" viewBox="0 0 200 60" fill="#FFFFFF" fill-opacity=".85"><ellipse cx="60" cy="40" rx="52" ry="16"/><ellipse cx="110" cy="30" rx="44" ry="19"/><ellipse cx="152" cy="42" rx="40" ry="13"/></svg>
+      <svg class="cloud w-[200px] top-[30%] right-[4%]" style="--dur:38s" viewBox="0 0 200 60" fill="#FFFFFF" fill-opacity=".7"><ellipse cx="70" cy="38" rx="56" ry="16"/><ellipse cx="126" cy="32" rx="44" ry="18"/></svg>
+    </div>
+
+    <!-- crystal city -->
+    <div class="absolute inset-x-0 bottom-[86px]" data-p="0.18">
+      <svg class="block mx-auto w-[980px] max-w-full" viewBox="0 0 900 340" aria-hidden="true">
+        <!-- back row -->
+        <g opacity=".5">
+          <rect x="140" y="150" width="34" height="190" rx="6" fill="url(#towerB)"/>
+          <rect x="250" y="120" width="30" height="220" rx="6" fill="url(#towerB)"/>
+          <rect x="600" y="135" width="32" height="205" rx="6" fill="url(#towerB)"/>
+          <rect x="705" y="165" width="28" height="175" rx="6" fill="url(#towerB)"/>
+        </g>
+        <!-- domes -->
+        <path d="M205 340 a52 44 0 0 1 104 0 Z" fill="url(#towerB)" opacity=".75" stroke="rgba(255,255,255,.6)"/>
+        <path d="M585 340 a46 38 0 0 1 92 0 Z" fill="url(#towerB)" opacity=".75" stroke="rgba(255,255,255,.6)"/>
+        <!-- main towers -->
+        <g stroke="rgba(255,255,255,.95)" stroke-width="1.4">
+          <rect x="322" y="60" width="44" height="280" rx="9" fill="url(#towerG)"/>
+          <rect x="334" y="26" width="20" height="46" rx="7" fill="url(#towerG)"/>
+          <rect x="418" y="8" width="56" height="332" rx="10" fill="url(#towerG)"/>
+          <rect x="436" y="-18" width="20" height="40" rx="7" fill="url(#towerG)"/>
+          <rect x="520" y="84" width="40" height="256" rx="9" fill="url(#towerG)"/>
+          <rect x="380" y="150" width="30" height="190" rx="8" fill="url(#towerG)"/>
+          <rect x="484" y="170" width="26" height="170" rx="8" fill="url(#towerG)"/>
+        </g>
+        <!-- glints -->
+        <g fill="rgba(255,255,255,.75)">
+          <rect x="330" y="66" width="3" height="268"/><rect x="428" y="16" width="4" height="318"/><rect x="528" y="90" width="3" height="244"/>
+        </g>
+        <!-- window bands -->
+        <g fill="rgba(10,90,138,.18)">
+          <rect x="326" y="110" width="36" height="3"/><rect x="326" y="160" width="36" height="3"/><rect x="326" y="210" width="36" height="3"/>
+          <rect x="424" y="70" width="44" height="3"/><rect x="424" y="130" width="44" height="3"/><rect x="424" y="190" width="44" height="3"/><rect x="424" y="250" width="44" height="3"/>
+          <rect x="524" y="130" width="32" height="3"/><rect x="524" y="190" width="32" height="3"/><rect x="524" y="250" width="32" height="3"/>
+        </g>
+        <!-- living foliage: planted terraces on towers + bushes at the bases -->
+        <g>
+          <ellipse cx="326" cy="202" rx="13" ry="6" fill="#63D06E"/><ellipse cx="368" cy="152" rx="11" ry="5" fill="#4DBF5A"/>
+          <ellipse cx="420" cy="132" rx="12" ry="6" fill="#63D06E"/><ellipse cx="472" cy="212" rx="13" ry="6" fill="#4DBF5A"/>
+          <ellipse cx="522" cy="172" rx="10" ry="5" fill="#63D06E"/><ellipse cx="558" cy="252" rx="11" ry="5" fill="#4DBF5A"/>
+          <ellipse cx="384" cy="252" rx="10" ry="5" fill="#63D06E"/>
+          <ellipse cx="300" cy="334" rx="46" ry="15" fill="#2DA84A"/><ellipse cx="446" cy="338" rx="60" ry="17" fill="#4DBF5A"/>
+          <ellipse cx="580" cy="334" rx="44" ry="14" fill="#2DA84A"/><ellipse cx="180" cy="338" rx="38" ry="12" fill="#2DA84A"/>
+          <ellipse cx="700" cy="338" rx="40" ry="12" fill="#2DA84A"/>
+        </g>
+        <!-- monorail -->
+        <path d="M60 300 Q 450 258 840 300" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="3"/>
+        <rect x="360" y="266" width="74" height="16" rx="8" fill="#EFFAFF" stroke="rgba(120,190,230,.9)"/>
+        <!-- apex flare -->
+        <circle cx="446" cy="6" r="26" fill="url(#dropG)" opacity="0"/>
+      </svg>
+    </div>
+    <div class="flare w-[150px] h-[150px] top-[24%] left-1/2 -translate-x-3" style="animation-duration:4s"></div>
+
+    <!-- meadow -->
+    <div class="absolute inset-x-0 bottom-[64px] h-[120px]" data-p="0.08"
+         style="background:linear-gradient(180deg,#63D06E 0%,#3FB456 55%,#2DA84A 100%);border-radius:100% 100% 0 0/48px 48px 0 0;
+                box-shadow:0 -6px 24px rgba(40,150,70,.35)">
+      <div class="absolute inset-0 opacity-80" style="border-radius:inherit;background-image:
+        radial-gradient(circle 2.5px at 40px 34px,#fff 55%,transparent 60%),
+        radial-gradient(circle 2px at 130px 60px,#fff 55%,transparent 60%),
+        radial-gradient(circle 2.5px at 230px 42px,#fff 55%,transparent 60%),
+        radial-gradient(circle 2px at 320px 70px,#fff 55%,transparent 60%);
+        background-size:380px 110px"></div>
+    </div>
+
+    <!-- water -->
+    <div class="absolute inset-x-0 bottom-0 h-[92px] overflow-hidden"
+         style="background:linear-gradient(180deg,#8FF0E6 0%,#22D4C8 45%,#0FA8C6 100%);border-top:2px solid rgba(255,255,255,.75)">
+      <div class="caustics"></div>
+      <svg class="fish w-9 top-6 left-[22%]" style="--dur:11s;--dx:90px" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
+      <svg class="fish w-6 top-12 left-[64%]" style="--dur:8s;--dx:-70px" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
+    </div>
+
+    <!-- bubbles -->
+    <div class="absolute inset-0 pointer-events-none" data-bubbles="10" data-max="130" data-giants="2"></div>
+
+    <!-- content -->
+    <div class="relative z-10 max-w-[1280px] mx-auto px-8 pt-44 pb-72 text-center">
+      <p class="reveal in inline-flex items-center gap-2 glass !rounded-full px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] text-white" style="text-shadow:0 1px 3px rgba(0,90,140,.5)">
+        <svg width="12" height="15" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="#fff"/></svg>
+        Pure spring water · EST. 2026
+      </p>
+      <h1 class="font-display font-black text-white text-[92px] leading-[1.03] tracking-tight mt-7"
+          style="text-shadow:0 2px 5px rgba(0,60,120,.75),0 4px 26px rgba(0,70,130,.65)">
+        Drink the future.
+      </h1>
+      <p class="mx-auto mt-6 max-w-[560px] text-[20px] leading-relaxed text-white font-semibold" style="text-shadow:0 1px 4px rgba(0,60,120,.8),0 2px 14px rgba(0,70,130,.6)">
+        OASYS is spring water bottled in 100% recycled glass — drawn from protected
+        springs, delivered from a better tomorrow.
+      </p>
+      <div class="mt-9 flex items-center justify-center gap-5">
+        <a href="#promise" class="btn-aqua text-[17px]">Find OASYS near you</a>
+        <a href="#purity" class="btn-glass text-[17px]">Our promise</a>
+      </div>
+    </div>
+    <a href="#purity" class="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 text-white/90 animate-bounce" aria-label="Scroll down">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- PURITY — glass bento over deep caustic water -->
+  <section id="purity" class="relative overflow-hidden" style="background:linear-gradient(160deg,#0A5A8A 0%,#0FA8C6 55%,#22D4C8 100%)">
+    <svg class="wave rotate-180 relative -top-px" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,38 C240,66 480,8 720,32 C960,56 1200,16 1440,42 L1440,-2 L0,-2 Z" fill="#2FA6DE"/></svg>
+    <div class="caustics"></div>
+    <div class="absolute inset-0 pointer-events-none" data-bubbles="6" data-max="70"></div>
+    <div class="relative max-w-[1280px] mx-auto px-8 pt-24 pb-32">
+      <p class="reveal text-[12px] font-bold uppercase tracking-[0.16em] text-white/85">Why OASYS</p>
+      <h2 class="reveal font-display font-extrabold text-white text-[48px] leading-tight mt-3 max-w-2xl" style="text-shadow:0 2px 14px rgba(0,80,140,.4)">
+        Purity you can see through.
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-14">
+        <article class="reveal glass card-lift p-9 text-white">
+          <div class="orb w-[72px] h-[72px]">
+            <svg width="30" height="36" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="#fff" opacity=".95"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-[22px] mt-6">Protected springs</h3>
+          <p class="mt-3 text-[16px] leading-relaxed text-white/85">Drawn from alpine aquifers sealed beneath forty meters of granite — untouched by industry, guarded by law.</p>
+        </article>
+        <article class="reveal glass card-lift p-9 text-white" style="transition-delay:.08s">
+          <div class="orb w-[72px] h-[72px]">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-[22px] mt-6">Zero-touch filtration</h3>
+          <p class="mt-3 text-[16px] leading-relaxed text-white/85">Filtered by stone for fifteen years, bottled without chemicals, additives, or shortcuts. Nature finished it first.</p>
+        </article>
+        <article class="reveal glass card-lift p-9 text-white" style="transition-delay:.16s">
+          <div class="orb w-[72px] h-[72px]">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 21c-4 0-7-3-7-7 0-5 7-11 7-11s7 6 7 11c0 4-3 7-7 7z" fill="rgba(255,255,255,.25)"/><path d="M12 21v-8"/></svg>
+          </div>
+          <h3 class="font-display font-extrabold text-[22px] mt-6">Glass, not plastic</h3>
+          <p class="mt-3 text-[16px] leading-relaxed text-white/85">Every bottle is 100% recycled glass. Zero microplastics in the water — and zero new plastic on the planet.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCE — split -->
+  <section id="source" class="relative overflow-hidden py-28" style="background:linear-gradient(180deg,#8FE8FB 0%,#2FA6DE 100%)">
+    <div class="max-w-[1280px] mx-auto px-8 grid lg:grid-cols-2 gap-10 items-stretch">
+      <div class="reveal relative rounded-[20px] overflow-hidden min-h-[440px]"
+           style="background:linear-gradient(180deg,#8FF0E6 0%,#22D4C8 50%,#0A5A8A 100%);border:1px solid rgba(255,255,255,.6);box-shadow:0 12px 44px rgba(0,180,220,.4)">
+        <div class="caustics"></div>
+        <div class="absolute inset-0" data-bubbles="5" data-max="46"></div>
+        <svg class="fish w-14 top-[30%] left-[18%]" style="--dur:12s;--dx:120px" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
+        <svg class="fish w-8 top-[58%] left-[55%]" style="--dur:9s;--dx:-90px" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
+        <!-- sunbeams -->
+        <div class="absolute -top-10 left-1/4 w-24 h-72 rotate-12 opacity-40" style="background:linear-gradient(180deg,rgba(255,255,255,.9),transparent)"></div>
+        <div class="absolute -top-10 left-1/2 w-14 h-64 rotate-12 opacity-30" style="background:linear-gradient(180deg,rgba(255,255,255,.9),transparent)"></div>
+      </div>
+      <div class="reveal glass glass-solid p-14 flex flex-col justify-center" style="transition-delay:.1s">
+        <p class="text-[12px] font-bold uppercase tracking-[0.16em] text-skyDeep">From the source</p>
+        <h2 class="font-display font-extrabold text-[44px] leading-[1.12] mt-4">Born forty meters below a meadow.</h2>
+        <p class="mt-5 text-[17px] leading-relaxed text-navy/80 font-semibold">
+          Every drop of OASYS falls as alpine rain, sinks through wildflower roots and
+          fifteen years of stone, and surfaces in a spring our grandparents fenced off
+          from the world. We just put glass around it.
+        </p>
+        <p class="mt-6 font-display font-extrabold text-[22px]" style="color:#F06A12">
+          0 contaminants · 12 natural minerals · pH 7.4
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS — stat tiles over meadow -->
+  <section id="numbers" class="relative overflow-hidden">
+    <div class="absolute inset-0" style="background:
+      linear-gradient(180deg,#5AC8F5 0%,#7AD6FF 26%,transparent 26%),
+      linear-gradient(180deg,transparent 0%,transparent 24%,#63D06E 26%,#2DA84A 100%)"></div>
+    <div class="absolute inset-0 opacity-60" style="background-image:
+      radial-gradient(circle 3px at 8% 62%,#fff 55%,transparent 60%),
+      radial-gradient(circle 2px at 22% 78%,#fff 55%,transparent 60%),
+      radial-gradient(circle 3px at 47% 70%,#fff 55%,transparent 60%),
+      radial-gradient(circle 2px at 71% 82%,#fff 55%,transparent 60%),
+      radial-gradient(circle 3px at 90% 66%,#fff 55%,transparent 60%)"></div>
+    <div class="absolute inset-0 pointer-events-none" data-bubbles="5" data-max="90"></div>
+    <div class="relative max-w-[1280px] mx-auto px-8 py-32">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="reveal glass p-10 text-center text-white">
+          <p class="font-display font-black text-[88px] leading-none" style="text-shadow:0 2px 16px rgba(0,110,160,.45)">0</p>
+          <p class="mt-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white/90">Microplastics, ever</p>
+        </div>
+        <div class="reveal glass p-10 text-center text-white" style="transition-delay:.08s">
+          <p class="font-display font-black text-[88px] leading-none" style="text-shadow:0 2px 16px rgba(0,110,160,.45)">100<span class="text-[44px] align-top">%</span></p>
+          <p class="mt-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white/90">Recycled glass bottles</p>
+        </div>
+        <div class="reveal glass p-10 text-center text-white" style="transition-delay:.16s">
+          <p class="font-display font-black text-[88px] leading-none" style="color:#FF7D30;text-shadow:0 2px 16px rgba(160,60,0,.4)">1<span class="text-[44px] align-top">%</span></p>
+          <p class="mt-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white/90">Of revenue to river restoration</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE — CTA banner -->
+  <section id="promise" class="relative overflow-hidden" style="background:linear-gradient(180deg,#5AC8F5 0%,#2FA6DE 60%,#22D4C8 100%)">
+    <div class="flare w-[320px] h-[320px] -top-10 right-10"></div>
+    <div class="absolute inset-0 pointer-events-none" data-bubbles="8" data-max="110" data-giants="1"></div>
+    <div class="caustics opacity-50"></div>
+    <div class="relative max-w-[880px] mx-auto px-8 py-36 text-center">
+      <div class="reveal glass p-14">
+        <h2 class="font-display font-extrabold text-white text-[52px] leading-[1.08]" style="text-shadow:0 2px 16px rgba(0,90,150,.45)">
+          Welcome to a better tomorrow.
+        </h2>
+        <p class="mt-5 text-[18px] text-cloud font-semibold max-w-[520px] mx-auto" style="text-shadow:0 1px 6px rgba(0,90,150,.4)">
+          OASYS is on shelves across the city — cold, clear, and waiting. Bring a bottle
+          back, and it becomes the next one.
+        </p>
+        <a href="#top" class="btn-aqua text-[18px] mt-9 inline-block">Find a store near you</a>
+      </div>
+    </div>
+    <!-- signage plate -->
+    <div class="signage absolute bottom-10 left-10 px-6 py-4 flex items-center gap-4">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8F0A0" stroke-width="2" stroke-linecap="round"><path d="M12 21c-4 0-7-3-7-7 0-5 7-11 7-11s7 6 7 11c0 4-3 7-7 7z"/></svg>
+      <div>
+        <p class="font-display font-extrabold text-[14px] tracking-wide">OASYS SPRINGS · SECTOR 04</p>
+        <p class="text-[11px] uppercase tracking-[0.18em] text-white/75 font-light mt-0.5">Welcome to a better tomorrow →</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-white" style="box-shadow:inset 0 2px 0 rgba(34,212,200,.6)">
+    <div class="max-w-[1280px] mx-auto px-8 py-16 grid md:grid-cols-[2fr_1fr_1fr_1fr] gap-10">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <svg width="22" height="26" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="url(#dropG)" stroke="rgba(255,255,255,.8)"/></svg>
+          <span class="font-display font-extrabold text-xl">OASYS</span>
+        </div>
+        <p class="mt-4 text-[15px] text-white/70 max-w-xs leading-relaxed">Spring water in recycled glass, from protected springs — water from a better tomorrow.</p>
+        <div class="flex gap-3 mt-6">
+          <a href="#" aria-label="Discord" class="orb w-10 h-10 text-[13px] font-display font-extrabold text-white">D</a>
+          <a href="#" aria-label="Twitch" class="orb w-10 h-10 text-[13px] font-display font-extrabold text-white">T</a>
+          <a href="#" aria-label="Instagram" class="orb w-10 h-10 text-[13px] font-display font-extrabold text-white">IG</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.16em] text-white/50 font-bold">Explore</p>
+        <ul class="mt-4 space-y-2.5 text-[15px] text-white/80">
+          <li><a href="#purity" class="hover:text-aqua transition">Purity</a></li>
+          <li><a href="#source" class="hover:text-aqua transition">The source</a></li>
+          <li><a href="#numbers" class="hover:text-aqua transition">Numbers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.16em] text-white/50 font-bold">Company</p>
+        <ul class="mt-4 space-y-2.5 text-[15px] text-white/80">
+          <li><a href="#" class="hover:text-aqua transition">Our springs</a></li>
+          <li><a href="#" class="hover:text-aqua transition">River fund</a></li>
+          <li><a href="#" class="hover:text-aqua transition">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.16em] text-white/50 font-bold">Contact</p>
+        <ul class="mt-4 space-y-2.5 text-[15px] text-white/80">
+          <li><a href="mailto:hello@oasys.eco" class="hover:text-aqua transition">hello@oasys.eco</a></li>
+          <li>Aurora Heights, Sector 04</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/15">
+      <p class="max-w-[1280px] mx-auto px-8 py-6 text-[12px] font-light tracking-[0.08em] text-white/50">© MMXXVI OASYS Springs. Bottled at the source.</p>
+    </div>
+  </footer>
+
+  <script src="assets/scene.js"></script>
+</body>
+</html>

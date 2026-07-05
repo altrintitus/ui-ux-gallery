@@ -17,6 +17,8 @@ and search. Or open a folder directly:
 
 - **[crimson-keep](crimson-keep/)** — a pixel-art gothic gaming-lounge landing (a lone-hero
   pixelscape). Hand-rendered pixel scene, game-UI panels, desktop + mobile.
+- **[frutiger-aero](frutiger-aero/)** — OASYS, a Y2K Frutiger Aero water-brand landing:
+  painted-gloss aqua UI, crystal city, iridescent bubbles, caustic water, goldfish.
 
 ## Structure
 
