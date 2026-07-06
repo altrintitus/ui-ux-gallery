@@ -1,13 +1,13 @@
-/* OASYS — Frutiger Aero page behaviors: bubble spawner, hero parallax,
-   scroll reveals, nav glass deepening. All decorative, reduced-motion safe. */
+/* AquaOS — page behaviors: iridescent bubble spawner + taskbar clock.
+   No fade-in reveals: 2007 sites didn't fade, everything is just THERE. */
 (function () {
   'use strict';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- iridescent bubbles ----
+  // ---- iridescent bubbles (data-bubbles="N", data-max, data-giants) ----
   function spawnBubbles(container, n) {
     if (!container || reduce) return;
-    var giants = +container.dataset.giants || 0; // dome-sized hero bubbles (the FA signature)
+    var giants = +container.dataset.giants || 0; // dome-sized signature bubbles
     for (var i = 0; i < n + giants; i++) {
       var b = document.createElement('div');
       var giant = i < giants;
@@ -29,43 +29,15 @@
     spawnBubbles(el, +el.dataset.bubbles || 8);
   });
 
-  // ---- hero parallax (sky far/fast … water near/slow) ----
-  var layers = [].slice.call(document.querySelectorAll('[data-p]'));
-  if (layers.length && !reduce) {
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (ticking) return; ticking = true;
-      requestAnimationFrame(function () {
-        var y = window.scrollY;
-        layers.forEach(function (l) { l.style.transform = 'translateY(' + (y * +l.dataset.p).toFixed(1) + 'px)'; });
-        ticking = false;
-      });
-    }, { passive: true });
+  // ---- live clock in menubar + taskbar tray ----
+  function tick() {
+    var d = new Date();
+    var t = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+    ['clock', 'clock2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = t;
+    });
   }
-
-  // ---- reveal on scroll ----
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-
-  // ---- nav deepens on scroll ----
-  var nav = document.querySelector('.nav-glass');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-  }
-
-  // ---- mobile menu (if present) ----
-  var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
-  if (btn && menu) {
-    var setOpen = function (open) {
-      menu.classList.toggle('hidden', !open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    };
-    btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
-    menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setOpen(false); });
-  }
+  tick();
+  setInterval(tick, 60000);
 })();

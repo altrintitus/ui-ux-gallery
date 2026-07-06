@@ -17,8 +17,8 @@ and search. Or open a folder directly:
 
 - **[pixel-gothic](pixel-gothic/)** — Crimson Keep, a pixel-art gothic gaming-lounge landing
   (a lone-hero pixelscape). Hand-rendered pixel scene, game-UI panels, desktop + mobile.
-- **[frutiger-aero](frutiger-aero/)** — OASYS, a Y2K Frutiger Aero water-brand landing:
-  painted-gloss aqua UI, crystal city, iridescent bubbles, caustic water, goldfish.
+- **[frutiger-aero](frutiger-aero/)** — AquaOS 7, a cluttered Frutiger Aero fake-OS product
+  site: Aero-glass windows, taskbar, real era imagery, fish, bubbles, badges, marquee.
 
 ## Structure
 

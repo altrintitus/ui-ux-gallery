@@ -24,9 +24,9 @@ window.GALLERY = [
   },
   {
     slug: "frutiger-aero",
-    title: "OASYS — Frutiger Aero Water Brand",
+    title: "AquaOS 7 — Frutiger Aero Desktop",
     category: "landing",
-    tags: ["frutiger-aero", "y2k", "aqua", "gloss", "eco", "animated"],
+    tags: ["frutiger-aero", "y2k", "aqua", "cluttered", "fake-os"],
     desktop: "frutiger-aero/preview/desktop.png",
     mobile: "frutiger-aero/preview/mobile.png",
     source: "local inspo — Frutiger Aero mood board"

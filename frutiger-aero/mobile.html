@@ -3,249 +3,330 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OASYS — Water From a Better Tomorrow</title>
-  <meta name="description" content="OASYS is spring water bottled in 100% recycled glass — from protected springs, for a better tomorrow.">
+  <title>AquaOS 7 — The Operating System From a Better Tomorrow</title>
+  <meta name="description" content="AquaOS 7 Ultimate — glossy, wet, alive. Best viewed at 800×600.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: {
       colors: { sky:'#5AC8F5', skyDeep:'#1A8FCA', aqua:'#22D4C8', deep:'#0A5A8A',
-                grass:'#4DBF5A', grassMid:'#2DA84A', cloud:'#EEF8FF', navy:'#0C3A52', fish:'#FF7D30' },
+                grass:'#4DBF5A', cloud:'#EEF8FF', navy:'#0C3A52', fish:'#FF7D30' },
       fontFamily: { display:['Nunito','sans-serif'], sans:['"Nunito Sans"','sans-serif'] }
     }}};
   </script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="text-navy">
+<body class="text-navy pt-11 pb-20">
 
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="towerG" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#CFEFFD"/>
-        <stop offset=".7" stop-color="#7CCDF2"/><stop offset="1" stop-color="#3E9FD8"/>
-      </linearGradient>
-      <linearGradient id="towerB" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#CDEDFB" stop-opacity=".8"/><stop offset="1" stop-color="#2E8FC7" stop-opacity=".75"/>
-      </linearGradient>
-      <linearGradient id="dropG" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#8FE7F7"/><stop offset="1" stop-color="#0891B2"/>
-      </linearGradient>
-    </defs>
-  </svg>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="towerG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#CFEFFD"/>
+      <stop offset=".7" stop-color="#7CCDF2"/><stop offset="1" stop-color="#3E9FD8"/>
+    </linearGradient>
+    <linearGradient id="towerB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDEDFB" stop-opacity=".8"/><stop offset="1" stop-color="#2E8FC7" stop-opacity=".75"/>
+    </linearGradient>
+    <linearGradient id="dropG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FE7F7"/><stop offset="1" stop-color="#0891B2"/>
+    </linearGradient>
+  </defs></svg>
 
-  <!-- NAV -->
-  <header class="nav-glass fixed top-0 inset-x-0 z-50">
-    <nav class="px-5 h-14 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2">
-        <svg width="20" height="24" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="url(#dropG)" stroke="rgba(255,255,255,.8)"/><ellipse cx="7.4" cy="10" rx="3" ry="4.4" fill="rgba(255,255,255,.55)" transform="rotate(-18 7.4 10)"/></svg>
-        <span class="font-display font-extrabold text-white text-xl" style="text-shadow:0 1px 8px rgba(0,110,170,.5)">OASYS</span>
-      </a>
-      <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"
-              class="w-10 h-10 grid place-items-center rounded-full" style="background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.55)">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </nav>
-    <div id="menu" class="hidden border-t border-white/40" style="background:rgba(50,150,210,.55);backdrop-filter:blur(20px)">
-      <ul class="px-6 py-4 space-y-3 text-white font-display font-bold text-lg" style="text-shadow:0 1px 4px rgba(0,90,140,.45)">
-        <li><a href="#purity" class="block py-1">Purity</a></li>
-        <li><a href="#source" class="block py-1">Source</a></li>
-        <li><a href="#numbers" class="block py-1">Numbers</a></li>
-        <li><a href="#promise" class="block py-1">Promise</a></li>
-      </ul>
+  <!-- WALLPAPER: the real thing -->
+  <div class="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <img src="assets/img/wall-bliss.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+    <img src="assets/img/fx-flare.jpg" alt="" class="absolute -top-10 -left-12 w-[340px] mix-blend-screen opacity-80" style="animation:flarePulse 5s ease-in-out infinite">
+    <div class="absolute inset-x-0 bottom-0 h-[5%]" style="background:linear-gradient(180deg,rgba(143,240,230,.85),rgba(15,168,198,.9));border-top:2px solid rgba(255,255,255,.7)"><div class="caustics"></div></div>
+  </div>
+
+  <!-- GLOBAL CLUTTER -->
+  <div class="fixed inset-0 pointer-events-none z-[5]" data-bubbles="5" data-max="70" data-giants="1" aria-hidden="true"></div>
+  <div class="pointer-events-none" aria-hidden="true">
+    <svg class="fish-cross w-9 z-[45]" style="top:30vh;--dur:28s;position:fixed" viewBox="0 0 32 16"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
+    <svg class="fish-cross w-6 z-[4]" style="top:66vh;--dur:22s;--delay:-8s;position:fixed" viewBox="0 0 32 16"><path d="M2 8 L9 2 L9 14 Z" fill="#E8B93A"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FFD24D"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
+  </div>
+
+  <!-- MENU BAR -->
+  <header class="menubar !h-[32px]">
+    <span class="flex items-center gap-1.5 pr-1">
+      <span class="orb w-5 h-5"><svg width="9" height="11" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="#fff"/></svg></span>
+      <b class="font-display font-black text-[13px]">AquaOS</b>
+    </span>
+    <div class="menu-item !px-2.5 text-[12px]">Go
+      <div class="menu-drop">
+        <a href="#welcome">Welcome</a><a href="#features">Features</a><a href="#player">Media Player</a>
+        <a href="#sync">AeroSync</a><a href="#wallpapers">Wallpapers</a><a href="#download">Download</a>
+        <div class="sep"></div><a href="#guestbook">Guestbook</a>
+      </div>
     </div>
+    <div class="menu-item !px-2.5 text-[12px]">Help
+      <div class="menu-drop"><a href="#" onclick="return false">About AquaOS… <span class="kbd">F1</span></a></div>
+    </div>
+    <span class="ml-auto text-[11.5px] font-bold pr-1"><b id="clock">--:--</b></span>
   </header>
 
-  <!-- HERO -->
-  <section id="top" class="relative min-h-[92vh] overflow-hidden">
-    <div class="absolute inset-0" style="background:linear-gradient(180deg,#7AD6FF 0%,#5AC8F5 40%,#2FA6DE 100%)"></div>
-    <div class="flare w-[240px] h-[240px] -top-16 -left-16" style="animation-duration:5s"></div>
-    <svg class="cloud w-[200px] top-[9%] left-[4%]" style="--dur:46s" viewBox="0 0 200 60" fill="#FFFFFF" fill-opacity=".92"><ellipse cx="60" cy="40" rx="52" ry="18"/><ellipse cx="105" cy="30" rx="42" ry="20"/><ellipse cx="150" cy="42" rx="46" ry="15"/></svg>
-    <svg class="cloud w-[140px] top-[17%] right-[6%]" style="--dur:60s" viewBox="0 0 200 60" fill="#FFFFFF" fill-opacity=".8"><ellipse cx="60" cy="40" rx="52" ry="16"/><ellipse cx="110" cy="30" rx="44" ry="19"/></svg>
+  <main class="relative z-10 px-3 mt-6 space-y-12">
 
-    <!-- city -->
-    <div class="absolute inset-x-0 bottom-[118px]">
-      <svg class="block mx-auto w-full" viewBox="210 40 490 300" aria-hidden="true">
-        <g opacity=".5">
-          <rect x="250" y="120" width="30" height="220" rx="6" fill="url(#towerB)"/>
-          <rect x="600" y="135" width="32" height="205" rx="6" fill="url(#towerB)"/>
-        </g>
-        <path d="M205 340 a52 44 0 0 1 104 0 Z" fill="url(#towerB)" opacity=".75" stroke="rgba(255,255,255,.6)"/>
-        <path d="M585 340 a46 38 0 0 1 92 0 Z" fill="url(#towerB)" opacity=".75" stroke="rgba(255,255,255,.6)"/>
-        <g stroke="rgba(255,255,255,.95)" stroke-width="1.4">
-          <rect x="322" y="60" width="44" height="280" rx="9" fill="url(#towerG)"/>
-          <rect x="334" y="26" width="20" height="46" rx="7" fill="url(#towerG)"/>
-          <rect x="418" y="8" width="56" height="332" rx="10" fill="url(#towerG)"/>
-          <rect x="436" y="-18" width="20" height="40" rx="7" fill="url(#towerG)"/>
-          <rect x="520" y="84" width="40" height="256" rx="9" fill="url(#towerG)"/>
-          <rect x="380" y="150" width="30" height="190" rx="8" fill="url(#towerG)"/>
-          <rect x="484" y="170" width="26" height="170" rx="8" fill="url(#towerG)"/>
-        </g>
-        <g fill="rgba(255,255,255,.75)">
-          <rect x="330" y="66" width="3" height="268"/><rect x="428" y="16" width="4" height="318"/><rect x="528" y="90" width="3" height="244"/>
-        </g>
-        <g fill="rgba(10,90,138,.18)">
-          <rect x="326" y="110" width="36" height="3"/><rect x="326" y="170" width="36" height="3"/>
-          <rect x="424" y="70" width="44" height="3"/><rect x="424" y="140" width="44" height="3"/><rect x="424" y="210" width="44" height="3"/>
-          <rect x="524" y="140" width="32" height="3"/><rect x="524" y="210" width="32" height="3"/>
-        </g>
-        <g>
-          <ellipse cx="326" cy="202" rx="13" ry="6" fill="#63D06E"/><ellipse cx="420" cy="132" rx="12" ry="6" fill="#63D06E"/>
-          <ellipse cx="472" cy="212" rx="13" ry="6" fill="#4DBF5A"/><ellipse cx="522" cy="172" rx="10" ry="5" fill="#63D06E"/>
-          <ellipse cx="300" cy="334" rx="46" ry="15" fill="#2DA84A"/><ellipse cx="446" cy="338" rx="60" ry="17" fill="#4DBF5A"/>
-          <ellipse cx="580" cy="334" rx="44" ry="14" fill="#2DA84A"/>
-        </g>
-        <path d="M200 300 Q 450 262 700 300" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="3"/>
-        <rect x="400" y="270" width="64" height="15" rx="7.5" fill="#EFFAFF" stroke="rgba(120,190,230,.9)"/>
-      </svg>
-    </div>
-
-    <!-- meadow -->
-    <div class="absolute inset-x-0 bottom-[74px] h-[70px]"
-         style="background:linear-gradient(180deg,#63D06E 0%,#3FB456 55%,#2DA84A 100%);border-radius:100% 100% 0 0/32px 32px 0 0">
-      <div class="absolute inset-0 opacity-80" style="border-radius:inherit;background-image:
-        radial-gradient(circle 2px at 30px 26px,#fff 55%,transparent 60%),
-        radial-gradient(circle 2px at 110px 44px,#fff 55%,transparent 60%),
-        radial-gradient(circle 2px at 190px 30px,#fff 55%,transparent 60%);
-        background-size:250px 70px"></div>
-    </div>
-
-    <!-- water -->
-    <div class="absolute inset-x-0 bottom-0 h-[76px] overflow-hidden"
-         style="background:linear-gradient(180deg,#8FF0E6 0%,#22D4C8 45%,#0FA8C6 100%);border-top:2px solid rgba(255,255,255,.75)">
-      <div class="caustics"></div>
-      <svg class="fish w-7 top-5 left-[30%]" style="--dur:10s;--dx:70px" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
-    </div>
-
-    <div class="absolute inset-0 pointer-events-none" data-bubbles="5" data-max="70" data-giants="1"></div>
-
-    <!-- content -->
-    <div class="relative z-10 px-6 pt-28 text-center">
-      <p class="inline-flex items-center gap-2 glass !rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white" style="text-shadow:0 1px 3px rgba(0,90,140,.5)">
-        <svg width="10" height="12" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="#fff"/></svg>
-        Pure spring water · EST. 2026
-      </p>
-      <h1 class="font-display font-black text-white text-[52px] leading-[1.04] tracking-tight mt-5"
-          style="text-shadow:0 2px 5px rgba(0,60,120,.75),0 4px 22px rgba(0,70,130,.65)">Drink the future.</h1>
-      <p class="mx-auto mt-4 max-w-[300px] text-[17px] leading-relaxed text-white font-semibold" style="text-shadow:0 1px 4px rgba(0,60,120,.8),0 2px 12px rgba(0,70,130,.6)">
-        Spring water in 100% recycled glass — from protected springs, for a better tomorrow.
-      </p>
-      <div class="mt-7 flex flex-col items-center gap-4 px-4">
-        <a href="#promise" class="btn-aqua w-full text-center text-[16px]">Find OASYS near you</a>
-        <a href="#purity" class="btn-glass w-full text-center text-[16px]">Our promise</a>
+    <!-- WELCOME -->
+    <section id="welcome" class="relative">
+      <div class="window">
+        <div class="titlebar">
+          <svg class="t-ico" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="url(#dropG)"/></svg>
+          <span class="t-text">Welcome — AquaOS 7</span>
+          <span class="t-btns"><span class="t-btn">–</span><span class="t-btn">▢</span><span class="t-btn close">✕</span></span>
+        </div>
+        <div class="win-body !p-5">
+          <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-skyDeep">AquaSoft® presents</p>
+          <h1 class="font-display font-black text-[44px] leading-[1.02] mt-1">Aqua<span style="color:#1A8FCA">OS</span> 7</h1>
+          <p class="font-display font-extrabold text-[16px] text-skyDeep mt-1">The OS from a better tomorrow.</p>
+          <p class="mt-3 text-[14px] leading-relaxed text-navy/80">
+            Glossy. Wet. Alive. Every window is glass, every icon is a droplet, and a goldfish
+            lives in your taskbar.
+          </p>
+          <div class="mt-5 flex flex-col gap-3">
+            <a href="#download" class="btn-aqua text-center text-[15px]">⤓ Download AquaOS 7</a>
+            <a href="#features" class="btn-aqua btn-green text-center text-[15px]">Take the tour</a>
+          </div>
+          <p class="mt-2.5 text-[11px] text-navy/60 font-semibold text-center">218 MB · one CD-R · dial-up friendly (11 hrs)</p>
+          <div class="mt-4 rounded-lg p-3.5 text-[12.5px] font-semibold text-navy/80" style="background:linear-gradient(160deg,#E7F7FF,#C8ECFB);border:1px solid rgba(140,200,235,.7)">
+            <b class="text-skyDeep uppercase text-[10px] tracking-wider">Requirements:</b> 512 MB RAM · Pixel Shader 2.0 · 2.4 GB disk · a sense of optimism
+          </div>
+        </div>
+        <div class="win-status"><span>AquaOS Setup</span><span class="ml-auto">💧 100% pure</span></div>
       </div>
-    </div>
-    <a href="#purity" class="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 text-white/90 animate-bounce" aria-label="Scroll down">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
-  </section>
-
-  <!-- PURITY -->
-  <section id="purity" class="relative overflow-hidden px-5 py-16" style="background:linear-gradient(160deg,#0A5A8A 0%,#0FA8C6 55%,#22D4C8 100%)">
-    <div class="caustics"></div>
-    <div class="absolute inset-0 pointer-events-none" data-bubbles="4" data-max="50"></div>
-    <div class="relative">
-      <p class="reveal text-[10px] font-bold uppercase tracking-[0.16em] text-white/85">Why OASYS</p>
-      <h2 class="reveal font-display font-extrabold text-white text-[32px] leading-tight mt-2" style="text-shadow:0 2px 12px rgba(0,80,140,.4)">
-        Purity you can see through.
-      </h2>
-      <div class="mt-8 space-y-5">
-        <article class="reveal glass p-7 text-white">
-          <div class="orb w-14 h-14"><svg width="22" height="27" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="#fff" opacity=".95"/></svg></div>
-          <h3 class="font-display font-extrabold text-[19px] mt-4">Protected springs</h3>
-          <p class="mt-2 text-[15px] leading-relaxed text-white/85">Alpine aquifers sealed beneath forty meters of granite — untouched by industry.</p>
-        </article>
-        <article class="reveal glass p-7 text-white">
-          <div class="orb w-14 h-14"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div>
-          <h3 class="font-display font-extrabold text-[19px] mt-4">Zero-touch filtration</h3>
-          <p class="mt-2 text-[15px] leading-relaxed text-white/85">Filtered by stone for fifteen years, bottled without chemicals or shortcuts.</p>
-        </article>
-        <article class="reveal glass p-7 text-white">
-          <div class="orb w-14 h-14"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 21c-4 0-7-3-7-7 0-5 7-11 7-11s7 6 7 11c0 4-3 7-7 7z" fill="rgba(255,255,255,.25)"/><path d="M12 21v-8"/></svg></div>
-          <h3 class="font-display font-extrabold text-[19px] mt-4">Glass, not plastic</h3>
-          <p class="mt-2 text-[15px] leading-relaxed text-white/85">100% recycled glass. Zero microplastics in the water, zero new plastic on Earth.</p>
-        </article>
+      <figure class="polaroid absolute -bottom-14 left-1 w-32 -rotate-6 z-20" aria-hidden="true">
+        <img src="assets/img/scene-eco-globe.jpg" alt=""><figcaption>better_tomorrow.jpg</figcaption>
+      </figure>
+      <div class="msn-chip absolute -bottom-6 right-1 rotate-2 z-20 !py-2 !px-3">
+        <div class="orb w-7 h-7"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div><p class="font-display font-extrabold text-[11px] leading-tight">aqua_boy_2007</p>
+        <p class="text-[9.5px] text-navy/60 font-semibold flex items-center gap-1"><i class="status-dot !w-2 !h-2"></i>Online</p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SOURCE -->
-  <section id="source" class="px-5 py-16" style="background:linear-gradient(180deg,#8FE8FB 0%,#2FA6DE 100%)">
-    <div class="reveal relative rounded-[20px] overflow-hidden h-[260px]"
-         style="background:linear-gradient(180deg,#8FF0E6 0%,#22D4C8 50%,#0A5A8A 100%);border:1px solid rgba(255,255,255,.6);box-shadow:0 10px 36px rgba(0,180,220,.4)">
-      <div class="caustics"></div>
-      <div class="absolute inset-0" data-bubbles="3" data-max="34"></div>
-      <svg class="fish w-10 top-[36%] left-[22%]" style="--dur:11s;--dx:80px" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8 L9 2 L9 14 Z" fill="#F06A12"/><ellipse cx="18" cy="8" rx="10" ry="6" fill="#FF7D30"/><ellipse cx="16" cy="5.6" rx="5" ry="2" fill="rgba(255,255,255,.55)"/><circle cx="24" cy="7" r="1.2" fill="#0C3A52"/></svg>
-      <div class="absolute -top-6 left-1/4 w-16 h-48 rotate-12 opacity-40" style="background:linear-gradient(180deg,rgba(255,255,255,.9),transparent)"></div>
-    </div>
-    <div class="reveal glass glass-solid p-8 mt-5">
-      <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-skyDeep">From the source</p>
-      <h2 class="font-display font-extrabold text-[28px] leading-[1.15] mt-3">Born forty meters below a meadow.</h2>
-      <p class="mt-4 text-[15px] leading-relaxed text-navy/80 font-semibold">
-        Every drop falls as alpine rain, sinks through wildflower roots and fifteen years
-        of stone, and surfaces in a spring we fenced off from the world. We just put glass around it.
-      </p>
-      <p class="mt-5 font-display font-extrabold text-[17px]" style="color:#F06A12">0 contaminants · 12 minerals · pH 7.4</p>
-    </div>
-  </section>
+    <!-- FEATURES -->
+    <section id="features">
+      <div class="window">
+        <div class="titlebar">
+          <svg class="t-ico" viewBox="0 0 24 24" fill="#2E8FC7"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2" fill="#4DBF5A"/><rect x="3" y="13" width="8" height="8" rx="2" fill="#FF7D30"/><rect x="13" y="13" width="8" height="8" rx="2" fill="#22D4C8"/></svg>
+          <span class="t-text">AquaOS Features</span>
+          <span class="t-btns"><span class="t-btn">–</span><span class="t-btn">▢</span><span class="t-btn close">✕</span></span>
+        </div>
+        <div class="win-body !p-4 space-y-3.5">
+          <article class="rounded-xl p-4 flex gap-3.5 items-center" style="background:linear-gradient(160deg,#E7F7FF,#CFF0FA);border:1px solid rgba(140,200,235,.6)">
+            <div class="orb w-11 h-11 shrink-0"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+            <div><h3 class="font-display font-extrabold text-[15px]">Aqua Media Player 11</h3>
+            <p class="text-[12.5px] text-navy/75 font-semibold">Rips, burns, visualizes. EQ glows like a jellyfish.</p></div>
+          </article>
+          <article class="rounded-xl p-4 flex gap-3.5 items-center" style="background:linear-gradient(160deg,#E9FBF3,#CFF5E4);border:1px solid rgba(120,210,170,.6)">
+            <div class="orb w-11 h-11 shrink-0"><svg width="17" height="17" viewBox="0 0 32 16"><ellipse cx="16" cy="8" rx="9" ry="5.5" fill="#fff"/><path d="M4 8 L10 3.5 L10 12.5 Z" fill="#fff"/></svg></div>
+            <div><h3 class="font-display font-extrabold text-[15px]">LiveFish™ Desktop</h3>
+            <p class="text-[12.5px] text-navy/75 font-semibold">A goldfish swims across your windows. Feed it weekly.</p></div>
+          </article>
+          <article class="rounded-xl p-4 flex gap-3.5 items-center" style="background:linear-gradient(160deg,#EAF3FF,#D4E6FB);border:1px solid rgba(140,180,235,.6)">
+            <div class="orb w-11 h-11 shrink-0"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M4 4h16v12H9l-5 4z"/></svg></div>
+            <div><h3 class="font-display font-extrabold text-[15px]">BubbleIM</h3>
+            <p class="text-[12.5px] text-navy/75 font-semibold">Messages arrive inside actual bubbles. Nudges ripple.</p></div>
+          </article>
+          <article class="rounded-xl p-4 flex gap-3.5 items-center" style="background:linear-gradient(160deg,#FFF8E9,#FBEDCC);border:1px solid rgba(230,190,120,.6)">
+            <div class="orb w-11 h-11 shrink-0" style="background:radial-gradient(circle at 32% 28%,#FFE9B9,#F5B838 45%,#C07908 100%)"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="5"/></svg></div>
+            <div><h3 class="font-display font-extrabold text-[15px]">WeatherGlass</h3>
+            <p class="text-[12.5px] text-navy/75 font-semibold">So glossy you can see tomorrow's sky. Always sunny.</p></div>
+          </article>
+          <article class="rounded-xl p-4 flex gap-3.5 items-center" style="background:linear-gradient(160deg,#F3EEFF,#E2D8FB);border:1px solid rgba(180,160,235,.6)">
+            <div class="orb w-11 h-11 shrink-0" style="background:radial-gradient(circle at 32% 28%,#E4D4FF,#9B6FE8 45%,#5B2FA8 100%)"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M7 7h10v13H7z"/><rect x="9" y="2" width="6" height="3" rx="1"/></svg></div>
+            <div><h3 class="font-display font-extrabold text-[15px]">AeroSync</h3>
+            <p class="text-[12.5px] text-navy/75 font-semibold">Syncs 214 devices — even the weird ones.</p></div>
+          </article>
+        </div>
+        <div class="win-status"><span>5 items</span><span class="ml-auto">Aero Glass™</span></div>
+      </div>
+    </section>
 
-  <!-- NUMBERS -->
-  <section id="numbers" class="relative overflow-hidden px-5 py-16" style="background:linear-gradient(180deg,#5AC8F5 0%,#63D06E 30%,#2DA84A 100%)">
-    <div class="absolute inset-0 pointer-events-none" data-bubbles="3" data-max="60"></div>
-    <div class="relative grid grid-cols-2 gap-4">
-      <div class="reveal glass p-6 text-center text-white">
-        <p class="font-display font-black text-[54px] leading-none" style="text-shadow:0 2px 12px rgba(0,110,160,.45)">0</p>
-        <p class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-white/90">Microplastics, ever</p>
+    <!-- MEDIA PLAYER -->
+    <section id="player" class="relative">
+      <div class="window">
+        <div class="titlebar" style="background:linear-gradient(180deg,rgba(210,245,255,.9),rgba(80,170,220,.8) 52%,rgba(140,210,245,.85))">
+          <svg class="t-ico" viewBox="0 0 24 24" fill="#0A5A8A"><path d="M8 5v14l11-7z"/></svg>
+          <span class="t-text">Aqua Media Player</span>
+          <span class="t-btns"><span class="t-btn">–</span><span class="t-btn">▢</span><span class="t-btn close">✕</span></span>
+        </div>
+        <div class="win-body !p-4">
+          <div class="flex gap-3 items-stretch">
+            <div class="w-[74px] shrink-0 rounded-md relative overflow-hidden" style="border:1px solid rgba(255,255,255,.8)">
+              <img src="assets/img/scene-lotus-sky.jpg" alt="Album art — Sounds of Y2K7" class="absolute inset-0 w-full h-full object-cover">
+              <div class="caustics"></div>
+            </div>
+            <div class="lcd flex-1 px-3 py-2 flex items-center justify-between">
+              <span class="text-[17px] tracking-wider">03:30:20</span>
+              <div class="eq"><i style="--d:.5s"></i><i style="--d:.8s"></i><i style="--d:.6s"></i><i style="--d:.9s"></i><i style="--d:.7s"></i><i style="--d:.55s"></i></div>
+            </div>
+          </div>
+          <p class="mt-2.5 font-display font-extrabold text-[14px] truncate">Ocean Breeze <span class="text-navy/50 font-sans font-semibold text-[11.5px]">— DJ Frutiger ft. Aero</span></p>
+          <div class="seek mt-2" style="--p:42%"><i></i></div>
+          <div class="mt-3.5 flex items-center justify-center gap-4">
+            <span class="orb w-9 h-9"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M18 6v12L8 12zM6 6h2v12H6z"/></svg></span>
+            <span class="orb w-12 h-12"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="orb w-9 h-9"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M6 6l10 6L6 18zM16 6h2v12h-2z"/></svg></span>
+          </div>
+          <ul class="mt-4 rounded-lg overflow-hidden text-[12px] font-semibold" style="border:1px solid rgba(140,200,235,.6)">
+            <li class="flex justify-between px-3 py-1.5" style="background:linear-gradient(180deg,#CDEDFB,#AFE0F7)"><span>▶ 01 · Ocean Breeze</span><span>3:47</span></li>
+            <li class="flex justify-between px-3 py-1.5 bg-white/70"><span>02 · Bliss (Hillside Mix)</span><span>4:12</span></li>
+            <li class="flex justify-between px-3 py-1.5 bg-white/40"><span>03 · Dolphin Theme</span><span>2:58</span></li>
+          </ul>
+        </div>
+        <div class="win-status"><span>Playing · 128 kbps</span><span class="ml-auto">♫ jellyfish</span></div>
       </div>
-      <div class="reveal glass p-6 text-center text-white">
-        <p class="font-display font-black text-[54px] leading-none" style="text-shadow:0 2px 12px rgba(0,110,160,.45)">100<span class="text-[26px] align-top">%</span></p>
-        <p class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-white/90">Recycled glass</p>
+      <div class="sticky absolute -bottom-8 left-2 w-40 p-3 z-20 text-[11px]">
+        remember!! defrag every friday + feed the taskbar fish 🐟 <b>~aqua_boy_2007</b>
       </div>
-      <div class="reveal glass p-6 text-center text-white col-span-2">
-        <p class="font-display font-black text-[54px] leading-none" style="color:#FF7D30;text-shadow:0 2px 12px rgba(160,60,0,.4)">1<span class="text-[26px] align-top">%</span></p>
-        <p class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-white/90">Of revenue to river restoration</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROMISE -->
-  <section id="promise" class="relative overflow-hidden px-5 py-20" style="background:linear-gradient(180deg,#5AC8F5 0%,#2FA6DE 60%,#22D4C8 100%)">
-    <div class="flare w-[180px] h-[180px] -top-8 right-2"></div>
-    <div class="absolute inset-0 pointer-events-none" data-bubbles="5" data-max="80"></div>
-    <div class="caustics opacity-50"></div>
-    <div class="reveal relative glass p-8 text-center">
-      <h2 class="font-display font-extrabold text-white text-[32px] leading-[1.1]" style="text-shadow:0 2px 14px rgba(0,90,150,.45)">
-        Welcome to a better tomorrow.
-      </h2>
-      <p class="mt-4 text-[16px] text-cloud font-semibold" style="text-shadow:0 1px 6px rgba(0,90,150,.4)">
-        OASYS is on shelves across the city — cold, clear, and waiting.
-      </p>
-      <a href="#top" class="btn-aqua w-full text-center text-[16px] mt-7 inline-block">Find a store near you</a>
-    </div>
-    <div class="signage relative mt-8 px-5 py-3.5 flex items-center gap-3 w-fit">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8F0A0" stroke-width="2" stroke-linecap="round"><path d="M12 21c-4 0-7-3-7-7 0-5 7-11 7-11s7 6 7 11c0 4-3 7-7 7z"/></svg>
-      <div>
-        <p class="font-display font-extrabold text-[12px] tracking-wide">OASYS SPRINGS · SECTOR 04</p>
-        <p class="text-[9px] uppercase tracking-[0.18em] text-white/75 font-light mt-0.5">Welcome to a better tomorrow →</p>
+    <!-- AEROSYNC -->
+    <section id="sync">
+      <div class="window">
+        <div class="titlebar">
+          <svg class="t-ico" viewBox="0 0 24 24" fill="#5B2FA8"><path d="M7 7h10v13H7z"/><rect x="9" y="2" width="6" height="3" rx="1"/></svg>
+          <span class="t-text">AeroSync — 214 devices</span>
+          <span class="t-btns"><span class="t-btn">–</span><span class="t-btn">▢</span><span class="t-btn close">✕</span></span>
+        </div>
+        <div class="win-body !p-0">
+          <div class="relative overflow-hidden px-5 py-8">
+            <img src="assets/img/scene-underwater-fish.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+            <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(10,90,138,0) 35%,rgba(10,90,138,.5) 100%)"></div>
+            <div class="caustics"></div>
+            <div class="absolute inset-0" data-bubbles="4" data-max="36"></div>
+            <div class="relative grid grid-cols-2 gap-x-4 gap-y-7 justify-items-center">
+              <div style="transform:rotate(-6deg)">
+                <div class="w-[70px] h-[90px] rounded-xl relative overflow-hidden mx-auto" style="background:linear-gradient(160deg,#F2FBFF,#9FC8DE);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 20px rgba(0,80,140,.4)">
+                  <div class="mx-2.5 mt-2.5 h-[48px] rounded" style="background:linear-gradient(160deg,#7AD6FF,#1A8FCA)"><div class="text-center pt-3.5 text-white font-display font-black text-[10px]">12:00</div></div>
+                  <div class="mx-3 mt-2 grid grid-cols-3 gap-1"><i class="h-1.5 rounded-sm bg-white/80"></i><i class="h-1.5 rounded-sm bg-white/80"></i><i class="h-1.5 rounded-sm bg-white/80"></i><i class="h-1.5 rounded-sm bg-white/70"></i><i class="h-1.5 rounded-sm bg-white/70"></i><i class="h-1.5 rounded-sm bg-white/70"></i></div>
+                  <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.06) 48%,transparent 50%)"></div>
+                </div>
+                <p class="text-center text-white text-[10px] font-bold mt-1.5" style="text-shadow:0 1px 3px rgba(0,60,110,.8)">AquaPhone Z</p>
+              </div>
+              <div style="transform:rotate(4deg)">
+                <div class="w-[58px] h-[94px] rounded-[13px] relative overflow-hidden mx-auto" style="background:linear-gradient(160deg,#FFFFFF,#C9D9E4);border:1px solid rgba(255,255,255,.95);box-shadow:0 8px 20px rgba(0,80,140,.4)">
+                  <div class="mx-2 mt-2 h-[30px] rounded" style="background:linear-gradient(160deg,#2FA6DE,#0A5A8A)"><div class="pt-2 text-center text-white font-display font-black text-[7px]">♫ Ocean Breeze</div></div>
+                  <div class="mx-auto mt-2.5 w-[34px] h-[34px] rounded-full relative" style="background:radial-gradient(circle at 35% 30%,#fff,#CBDDE8 70%)"><div class="absolute inset-[10px] rounded-full bg-white"></div></div>
+                  <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.05) 48%,transparent 50%)"></div>
+                </div>
+                <p class="text-center text-white text-[10px] font-bold mt-1.5" style="text-shadow:0 1px 3px rgba(0,60,110,.8)">AquaPod nano</p>
+              </div>
+              <div style="transform:rotate(-3deg)">
+                <div class="w-[118px] h-[58px] rounded-[16px] relative overflow-hidden mx-auto" style="background:linear-gradient(160deg,#101820,#2B3B48);border:1px solid rgba(255,255,255,.5);box-shadow:0 8px 20px rgba(0,60,110,.5)">
+                  <div class="absolute left-[24px] right-[24px] top-2 bottom-2 rounded" style="background:linear-gradient(160deg,#63D06E,#1A8FCA)"><div class="pt-2 text-center text-white font-display font-black text-[8px]">AQUA RACER 7</div></div>
+                  <div class="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#4A5A68]"></div>
+                  <div class="absolute right-1.5 top-[36%] w-1.5 h-1.5 rounded-full bg-[#5AC8F5]"></div>
+                  <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.04) 48%,transparent 50%)"></div>
+                </div>
+                <p class="text-center text-white text-[10px] font-bold mt-1.5" style="text-shadow:0 1px 3px rgba(0,60,110,.8)">GameGill portable</p>
+              </div>
+              <div style="transform:rotate(5deg)">
+                <div class="w-[78px] h-[52px] rounded-lg relative overflow-hidden mx-auto" style="background:linear-gradient(160deg,#F4F9FC,#B9CBD6);border:1px solid rgba(255,255,255,.95);box-shadow:0 8px 20px rgba(0,80,140,.4)">
+                  <div class="absolute left-2.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full" style="background:radial-gradient(circle at 35% 30%,#9FD8F5,#123A52 65%);border:2px solid #DFE9EF"></div>
+                  <div class="absolute right-2 top-1.5 w-1.5 h-1.5 rounded-full bg-[#FFD24D]"></div>
+                  <div class="absolute right-2 bottom-1.5 text-[6px] font-black text-[#41637d]">7.1 MP</div>
+                  <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.05) 48%,transparent 50%)"></div>
+                </div>
+                <p class="text-center text-white text-[10px] font-bold mt-1.5" style="text-shadow:0 1px 3px rgba(0,60,110,.8)">SplashShot 7.1</p>
+              </div>
+            </div>
+            <p class="relative text-center text-white/95 font-semibold text-[12.5px] mt-6" style="text-shadow:0 1px 4px rgba(0,60,110,.7)">
+              Drop any gadget in the dock — AeroSync soaks it into the cloud. (The cloud is literal.)
+            </p>
+          </div>
+        </div>
+        <div class="win-status"><span>4 shown</span><span class="ml-auto">↻ 7 min ago</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-navy text-white px-6 py-12" style="box-shadow:inset 0 2px 0 rgba(34,212,200,.6)">
-    <div class="flex items-center gap-2">
-      <svg width="18" height="22" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="url(#dropG)" stroke="rgba(255,255,255,.8)"/></svg>
-      <span class="font-display font-extrabold text-lg">OASYS</span>
+    <!-- WALLPAPERS -->
+    <section id="wallpapers">
+      <div class="window">
+        <div class="titlebar">
+          <svg class="t-ico" viewBox="0 0 24 24" fill="#2E8FC7"><path d="M4 5h16v14H4z" opacity=".35"/><path d="M6 17l4-7 3 5 2.5-3 2.5 5H6z"/><circle cx="9" cy="9" r="1.6"/></svg>
+          <span class="t-text">My Wallpapers — 6 of 214</span>
+          <span class="t-btns"><span class="t-btn">–</span><span class="t-btn">▢</span><span class="t-btn close">✕</span></span>
+        </div>
+        <div class="win-body !p-4 grid grid-cols-2 gap-3">
+          <div class="wp h-20"><img src="assets/img/scene-meadow-city.jpg" alt="Wallpaper: meadow path to the city" class="w-full h-full object-cover"></div>
+          <div class="wp h-20"><img src="assets/img/scene-split-earth.jpg" alt="Wallpaper: the earth, opened" class="w-full h-full object-cover"></div>
+          <div class="wp h-20"><img src="assets/img/scene-house-pond.jpg" alt="Wallpaper: house by the pond" class="w-full h-full object-cover"></div>
+          <div class="wp h-20"><img src="assets/img/scene-petal-dew.jpg" alt="Wallpaper: dew on petals" class="w-full h-full object-cover"></div>
+          <div class="wp h-20 col-span-2 relative grid place-items-center"><img src="assets/img/scene-ocean-ripple.jpg" alt="" class="absolute inset-0 w-full h-full object-cover"><span class="relative font-display font-black text-white text-[13px] text-center px-2" style="text-shadow:0 1px 6px rgba(0,60,110,.8)">+ 210 more · aqua_pack_final_FINAL2.7z (4.2 MB)</span></div>
+        </div>
+        <div class="win-status"><span>6 items</span><span class="ml-auto"><a class="underline" href="#download">Download all</a></span></div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download">
+      <div class="window" style="box-shadow:0 0 0 4px rgba(120,220,170,.4),0 0 0 5px rgba(255,255,255,.5),0 14px 44px rgba(0,150,120,.45)">
+        <div class="titlebar" style="background:linear-gradient(180deg,rgba(233,255,242,.9),rgba(140,225,175,.8) 52%,rgba(190,240,210,.85))">
+          <svg class="t-ico" viewBox="0 0 24 24" fill="#1E8A3C"><path d="M12 3v10m0 0l-4-4m4 4l4-4" stroke="#1E8A3C" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M4 17h16v3H4z"/></svg>
+          <span class="t-text">Download — aquaos7_setup.exe</span>
+          <span class="t-btns"><span class="t-btn">–</span><span class="t-btn">▢</span><span class="t-btn close">✕</span></span>
+        </div>
+        <div class="win-body !p-5 text-center">
+          <h2 class="font-display font-black text-[28px] leading-tight">Ready for a better tomorrow?</h2>
+          <p class="mt-1.5 text-[13px] text-navy/75 font-semibold">v7.0.2600 · 218 MB · 30 wallpapers, 12 sounds, 1 fish</p>
+          <div class="mt-4"><div class="seek !h-4" style="--p:87%"><i></i></div>
+          <p class="mt-1.5 text-[11px] font-bold text-navy/60">87% — 11 hrs 4 min remaining (dial-up detected)</p></div>
+          <div class="mt-5 flex flex-col gap-3">
+            <a href="#welcome" class="btn-aqua text-center text-[15px]">⤓ Start download</a>
+            <a href="#welcome" class="btn-aqua btn-green text-center text-[13.5px]">Order the CD-R (free shipping)</a>
+          </div>
+          <p class="mt-3.5 text-[11px] font-semibold text-navy/55">Mirrors: <span class="underline">US</span> · <span class="underline">DE</span> · <span class="line-through">MegaUpload</span> (RIP)</p>
+        </div>
+        <div class="win-status"><span>AquaSoft Corp.</span><span class="ml-auto">✔ 100% bloatware*</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SHRINE FOOTER -->
+  <footer id="guestbook" class="relative z-10 mt-16">
+    <img src="assets/img/fg-flowers.png" alt="" class="fg-strip absolute -top-5 left-0 z-20" aria-hidden="true">
+    <div class="marquee text-white font-display font-extrabold text-[12px] py-2" style="background:linear-gradient(180deg,rgba(10,90,138,.85),rgba(15,140,190,.85));text-shadow:0 1px 3px rgba(0,60,110,.7)">
+      <div>★ Welcome to AquaOS.org ★ Visitor #73,214 ★ Sign the guestbook!! ★ Best viewed in IE6 at 800×600 ★ Y2K7 compliant ★ ~drink more water~ ★</div>
     </div>
-    <p class="mt-3 text-[14px] text-white/70 leading-relaxed">Spring water in recycled glass — water from a better tomorrow.</p>
-    <div class="flex gap-3 mt-5">
-      <a href="#" aria-label="Discord" class="orb w-9 h-9 text-[12px] font-display font-extrabold text-white">D</a>
-      <a href="#" aria-label="Twitch" class="orb w-9 h-9 text-[12px] font-display font-extrabold text-white">T</a>
-      <a href="#" aria-label="Instagram" class="orb w-9 h-9 text-[12px] font-display font-extrabold text-white">IG</a>
+    <div class="px-4 py-8" style="background:linear-gradient(180deg,#0C3A52,#0A2B3E)">
+      <div class="flex flex-wrap items-center justify-center gap-2.5">
+        <span class="badge" style="background:linear-gradient(160deg,#33DDF0,#0891B2)">AquaOS<br>READY</span>
+        <span class="badge" style="background:linear-gradient(160deg,#7FE06A,#1E8A3C)">100% ECO<br>PIXELS</span>
+        <span class="badge" style="background:linear-gradient(160deg,#5AC8F5,#0A5A8A)">BEST VIEWED<br>IE6 · 800×600</span>
+        <span class="badge" style="background:linear-gradient(160deg,#FFB03A,#F06A12)">GET AQUA<br>FLASH 9</span>
+        <span class="badge" style="background:linear-gradient(160deg,#C5A0E8,#5B2FA8)">W3C<br>AQUA 1.0</span>
+        <span class="badge" style="background:linear-gradient(160deg,#B9F1FF,#2FB8E8);color:#0C3A52;text-shadow:none">POWERED BY<br>DIAL-UP</span>
+      </div>
+      <div class="mt-6 flex flex-col items-center gap-1.5">
+        <img class="userbar" src="assets/img/ub-aerofan.jpg" alt="Userbar: I love Frutiger Aero">
+        <img class="userbar" src="assets/img/ub-eco.png" alt="Userbar: Frutiger Eco fan">
+        <img class="userbar" src="assets/img/ub-aurora.png" alt="Userbar: Frutiger Aurora fan">
+        <img class="userbar" src="assets/img/ub-win7.jpg" alt="Userbar: Windows 7 fan">
+      </div>
+      <div class="mt-6 flex flex-col items-center gap-3 text-white/85 text-[12.5px] font-semibold">
+        <span class="flex items-center gap-2">Visitors: <span class="counter"><b>0</b><b>0</b><b>7</b><b>3</b><b>2</b><b>1</b><b>4</b></span></span>
+        <span>« <a href="#" class="underline" onclick="return false">prev</a> · <a href="#" class="underline" onclick="return false">random</a> · <a href="#" class="underline" onclick="return false">next</a> » aqua webring</span>
+        <a href="#" class="underline" onclick="return false">📖 Sign the guestbook</a>
+      </div>
+      <p class="mt-6 text-center text-[10.5px] text-white/50 font-semibold">© 2007 AquaSoft Corporation. AquaOS, LiveFish™ and BubbleIM are fictional.<br>*bloatware-free. Lighter than one Vista wallpaper.</p>
     </div>
-    <p class="mt-8 text-[11px] font-light tracking-[0.08em] text-white/50">© MMXXVI OASYS Springs. Bottled at the source.</p>
   </footer>
+
+  <!-- TASKBAR -->
+  <nav class="taskbar !h-14 !gap-1.5 !px-2" aria-label="Sections">
+    <a href="#welcome" class="start-orb !w-10 !h-10" aria-label="Start — Welcome">
+      <svg width="16" height="19" viewBox="0 0 20 24"><path d="M10 1 C13 7 18 11 18 16 a8 8 0 0 1 -16 0 C2 11 7 7 10 1 Z" fill="#fff"/></svg>
+    </a>
+    <a href="#features" class="task-btn !px-3" aria-label="Features"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></a>
+    <a href="#player" class="task-btn !px-3" aria-label="Player"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
+    <a href="#sync" class="task-btn !px-3" aria-label="AeroSync"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M7 7h10v13H7z"/><rect x="9" y="2" width="6" height="3" rx="1"/></svg></a>
+    <a href="#wallpapers" class="task-btn !px-3" aria-label="Wallpapers"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M4 5h16v14H4z" opacity=".5"/><path d="M6 17l4-7 3 5 2.5-3 2.5 5H6z"/></svg></a>
+    <a href="#download" class="task-btn !px-3" aria-label="Download" style="background:linear-gradient(180deg,rgba(140,240,180,.5),rgba(40,170,90,.35) 48%,rgba(0,90,40,.25))"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 3v10m0 0l-4-4m4 4l4-4" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M4 17h16v3H4z"/></svg></a>
+    <span class="tray !px-2.5"><b id="clock2" class="text-[11px]">--:--</b></span>
+  </nav>
 
   <script src="assets/scene.js"></script>
 </body>
